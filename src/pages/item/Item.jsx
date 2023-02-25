@@ -3,13 +3,14 @@ import './item.css'
 import creator from '../../assets/seller2.png'
 
 import { useLocation } from 'react-router';
+import { useMoralis } from "react-moralis";
 
 const Item = () => {
-
+  const { isAuthenticated, user } = useMoralis();
 
   const location = useLocation();
   const nft = location.state?.data;
-  console.log(nft)
+  console.log(nft.token_id)
   return( 
       <div className='item section__padding'>
         <div className="item-image">
@@ -37,8 +38,9 @@ const Item = () => {
               <p>{nft?.metadata.description}</p>
             </div>
             <div className="item-content-buy">
-              <button className="primary-btn"> Buy For 0.1ETH </button>
-              <button className="secondary-btn">Make Offer</button>
+              <button className="primary-btn" > Buy For 0.1ETH </button>
+              <button className="secondary-btn">{isAuthenticated ? user.getUsername() : "Not Authenticated"}</button>
+
             </div>
           </div>
       </div>
