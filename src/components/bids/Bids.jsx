@@ -32,7 +32,7 @@ export default function Bids() {
     }
 
     if (!data?.result || data.result.length === 0) {
-      return <Loader />;
+       return <Loader />;
     }
 
 
