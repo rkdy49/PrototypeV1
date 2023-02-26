@@ -1,5 +1,6 @@
 import { useNFTBalances } from "react-moralis";
 import { Link } from "react-router-dom";
+import Loader from "../loader/Loader";
 import "./bids.css";
 
  
@@ -18,7 +19,7 @@ export default function Bids() {
   
   try {
     if (isLoading) {
-      return <p>isLoading</p>;
+      return <Loader />;
     }
 
     if (error) {

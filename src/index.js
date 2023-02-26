@@ -9,16 +9,12 @@ import { MoralisProvider } from 'react-moralis'
 
 ReactDOM.render(
   <BrowserRouter>
-
     <MoralisProvider
       serverUrl={process.env.REACT_APP_SERVER_URL ?? ''}
       appId={process.env.REACT_APP_APPLICATION_ID ?? ''}
-    >
-      
-      <App />
-      
+    > 
+      <App /> 
     </MoralisProvider>
-  
   </BrowserRouter>,
   document.getElementById("root")
 );
