@@ -1,7 +1,8 @@
 .bids-container{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
+  display: grid;
   align-items: center;
   margin: auto;
   width: 90%;
@@ -15,29 +16,28 @@
   margin-bottom: 1rem;
 }
 .bids-container-card{
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 10px;
   margin: 0 -5px;
 }
-.bids-container-card:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.card-column{
-  float: left;
-  width: 20%;
-}
+
 .bids-card{
   background: #2A2D3A;
   border-radius: 20px;
   padding: 11px 12px 19px 11px;
   margin-inline: 10px;
-  margin-bottom: 20px;
+  height: 150px; /* Set the height of the card */
+  width: 100px; /* Set the width of the card */
 }
+
 .bids-card img{
   border-radius: 20px;
-  width: 100px;
-  max-height: 100px;
+  width: 100%;
+  height: 80%; /* Set the height of the image */
+  object-fit: cover; /* Ensure the image covers the card */
 }
+
 .bids-card-top p{
   font-family: var(--font-family);
   font-weight: 600;
@@ -45,38 +45,48 @@
   line-height: 21px;
   color: #FFFFFF;
   margin-top: 15px;
+  white-space: nowrap; /* Prevent the text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Add an ellipsis to indicate hidden text */
 }
+
 .bids-card-bottom{
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Center the content vertically */
 }
 
 .bids-card-top {
-  width: 120px;
+  width: 100%; /* Set the width to 100% */
   overflow: hidden;
-  max-height: 200px ;
 }
+
 .bids-card-bottom p{
   font-family: var(--font-family);
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-/* text-align: right; */
-color: #FFFFFF;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #FFFFFF;
+  white-space: nowrap; /* Prevent the text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Add an ellipsis to indicate hidden text */
 }
-.bids-card-bottom p:last-child{
-font-weight: normal;
 
+.bids-card-bottom p:last-child{
+  font-weight: normal;
 }
+
 .bids-card-bottom span{
-font-weight: normal;
+  font-weight: normal;
 }
+
 .load-more{
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
 }
+
 .load-more button{
   background: transparent;
   border: 1px solid var(--primary-color);
@@ -89,6 +99,8 @@ font-weight: normal;
   font-size: 14px;
   line-height: 21px;
 }
+
+
 
 @media screen and (max-width: 1440px) {
   .card-column {
