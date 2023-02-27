@@ -1,40 +1,34 @@
 import { useNFTBalances } from "react-moralis";
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./bids.css";
 
- 
 export default function Bids() {
- 
-  const { data, error, isLoading } = useNFTBalances(
-    {
-      chain: 5,
-      address: "0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37",
-    },
-    {
-      autoFetch: true,
-    }
-  );
-  
-  
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    axios("https://gearfi-server.onrender.com/demo").then(({ data }) => {
+      setData(data);
+      console.log(data.nfts);
+    });
+  }, []);
+
+  // const { data, error, isLoading } = useNFTBalances(
+  //   {
+  //     chain: 5,
+  //     address: "0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37",
+  //   },
+  //   {
+  //     autoFetch: true,
+  //   }
+  // );
+
   try {
-    if (isLoading) {
+    if (!data?.nfts || data.nfts.length === 0) {
       return <Loader />;
     }
-
-    if (error) {
-      return (
-        <div>
-          <p>{error.name}</p>
-          <p>{error.message}</p>
-        </div>
-      );
-    }
-
-    if (!data?.result || data.result.length === 0) {
-       return <Loader />;
-    }
-
 
     return (
       <div
@@ -44,16 +38,14 @@ export default function Bids() {
           gridGap: "20px",
         }}
       >
-        {data.result.map((nft) => (
+        {data.nfts.map((nft) => (
           <div className="card-column">
-           
             <Link
-              to={`/post/${nft.token_address}${nft.token_id}`}
+              to={`/post/${nft.token_address._value}${nft.token_id}`}
               state={{ data: nft }}
             >
               <div className="bids-card">
                 <div className="bids-card-top">
-                 
                   {nft.metadata?.image && (
                     <img
                       src={nft.metadata?.image.replace(
@@ -70,9 +62,7 @@ export default function Bids() {
                   <p>
                     0.20 <span>ETH</span>
                   </p>
-                  <p>
-                    Price: 
-                  </p>
+                  <p>Price:</p>
                 </div>
               </div>
             </Link>
@@ -80,11 +70,8 @@ export default function Bids() {
         ))}
       </div>
     );
-  } 
-  
-  catch (error) {
+  } catch (error) {
     console.log(error);
     return null;
   }
 }
-
