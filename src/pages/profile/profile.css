@@ -45,6 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 }
 .profile-bottom-input input{
   background: #1B1A21;

@@ -14,17 +14,11 @@ const Menu = () => (
   </>
 );
 
-function auth() {
-  
-
-  
-}
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
  
   const { authenticate, enableWeb3 } = useMoralis();
-  const { isAuthenticated, user } = useMoralis();
+  const { isAuthenticated, user } = useMoralis(false);
 
   const [authError, setAuthError] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
@@ -86,10 +80,29 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-links_container">
-        <button type="button" className="primary-btn" onClick={handleAuth}>
-            {user ? user.getUsername() : 'Connect Wallet'}
+
+          {!isAuthenticated ? (
+            <button type="button" className="primary-btn" onClick={handleAuth}>
+              Connect Wallet
             </button>
+          ) : (
+            <Link to={`/profile/${user.id}`}>
+    <p>My Profile</p>
+    </Link> 
+          )}
+          {console.log(user)}
+
+
+
+        
+   
+      
+
           
+
+
+
+
         </div>
       </div>
       
@@ -99,3 +112,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+ 
