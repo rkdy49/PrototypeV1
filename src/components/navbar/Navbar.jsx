@@ -4,29 +4,17 @@ import { Link } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import Moralis from "moralis-v1";
 
-const Menu = () => (
-  <>
-    <Link to="/">
-      <p>Explore</p>{" "}
-    </Link>
-    <p>My Items</p>
-  </>
-);
-
 
 const Navbar = () => {
- 
   const { authenticate, enableWeb3 } = useMoralis();
-  const { isAuthenticated, user } = useMoralis(false);
+  const { isAuthenticated, user } = useMoralis();
 
   const [authError, setAuthError] = useState(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
- 
-
-  const handleAuth = async () => {
+  async function handleAuth() {
     console.log("running Auth");
-    
+
     try {
       setAuthError(null);
       setIsAuthenticating(true);
@@ -63,8 +51,8 @@ const Navbar = () => {
     } finally {
       setIsAuthenticating(false);
     }
-    console.log(user)
-  };
+    console.log(user);
+  }
 
   return (
     <div className="navbar">
@@ -79,36 +67,24 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-links_container">
-
+          {console.log(isAuthenticated)}
           {!isAuthenticated ? (
-            <button type="button" className="primary-btn" onClick={handleAuth}>
+            <button
+              type="button"
+              className="primary-btn"
+              onClick={() => handleAuth()}
+            >
               Connect Wallet
             </button>
           ) : (
             <Link to={`/profile/${user.id}`}>
-    <p>My Profile</p>
-    </Link> 
+              <p>My Profile</p>
+            </Link>
           )}
-          {console.log(user)}
-
-
-
-        
-   
-      
-
-          
-
-
-
-
         </div>
       </div>
-      
-      
     </div>
   );
 };
 
 export default Navbar;
- 
