@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import Moralis from "moralis-v1";
