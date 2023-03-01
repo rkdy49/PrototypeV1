@@ -31,6 +31,13 @@ export default function Bids() {
     }
 
     return (
+<<<<<<< HEAD
+      <div className="card-wrap">
+        {data.result.map((nft) => (
+          <div className="card-column">
+           
+              <div className="bids-card">
+=======
       <div
         style={{
           display: "",
@@ -40,11 +47,11 @@ export default function Bids() {
       >
         {data.nfts.map((nft) => (
           <div className="card-column">
+>>>>>>> 94433ffb33dde5e48bbe1a3005cc0662f0eb7992
             <Link
               to={`/post/${nft.token_address._value}${nft.token_id}`}
               state={{ data: nft }}
             >
-              <div className="bids-card">
                 <div className="bids-card-top">
                   {nft.metadata?.image && (
                     <img
@@ -64,8 +71,8 @@ export default function Bids() {
                   </p>
                   <p>Price:</p>
                 </div>
-              </div>
             </Link>
+              </div>
           </div>
         ))}
       </div>
