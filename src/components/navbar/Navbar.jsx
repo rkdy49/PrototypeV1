@@ -14,58 +14,93 @@ const Menu = () => (
   </>
 );
 
-
 const Navbar = () => {
- 
-  const { authenticate, enableWeb3 } = useMoralis();
-  const { isAuthenticated, user } = useMoralis(false);
+  // const { authenticate, enableWeb3 } = useMoralis();
+  // const { isAuthenticated, user, initialize } = useMoralis();
 
-  const [authError, setAuthError] = useState(null);
-  const [isAuthenticating, setIsAuthenticating] = useState(false);
+  // const [authError, setAuthError] = useState(null);
+  // const [isAuthenticating, setIsAuthenticating] = useState(false);
 
- 
+  // const handleAuth = async () => {
+  //   // initialize();
 
-  const handleAuth = async () => {
-    console.log("running Auth");
-    
-    try {
-      setAuthError(null);
-      setIsAuthenticating(true);
+  //   console.log("running Auth");
 
-      // Enable web3 to get user address and chain
-      await enableWeb3({ throwOnError: true, provider: "metamask" });
-      const { account, chainId } = Moralis;
+  //   try {
+  //     setAuthError(null);
+  //     setIsAuthenticating(true);
 
-      if (!account) {
-        throw new Error(
-          "Connecting to chain failed, as no connected account was found"
-        );
-      }
-      if (!chainId) {
-        throw new Error(
-          "Connecting to chain failed, as no connected chain was found"
-        );
-      }
+  //     // Enable web3 to get user address and chain
+  //     await enableWeb3({ throwOnError: true, provider: "metamask" });
+  //     const { account, chainId } = Moralis;
 
-      // Get message to sign from the auth api
-      const { message } = await Moralis.Cloud.run("requestMessage", {
-        address: account,
-        chain: parseInt(chainId, 16),
-        networkType: "evm",
-      });
+  //     if (!account) {
+  //       throw new Error(
+  //         "Connecting to chain failed, as no connected account was found"
+  //       );
+  //     }
+  //     if (!chainId) {
+  //       throw new Error(
+  //         "Connecting to chain failed, as no connected chain was found"
+  //       );
+  //     }
 
-      // Authenticate and login via parse
-      await authenticate({
-        signingMessage: message,
-        throwOnError: true,
-      });
-    } catch (error) {
-      setAuthError(error);
-    } finally {
-      setIsAuthenticating(false);
+  //     // Get message to sign from the auth api
+  //     const { message } = await Moralis.Cloud.run("requestMessage", {
+  //       address: account,
+  //       chain: parseInt(chainId, 16),
+  //       networkType: "evm",
+  //     });
+
+  //     // Authenticate and login via parse
+  //     await authenticate({
+  //       signingMessage: message,
+  //       throwOnError: true,
+  //     });
+  //   } catch (error) {
+  //     setAuthError(error);
+  //   } finally {
+  //     setIsAuthenticating(false);
+  //   }
+  //   console.log(user);
+  // };
+  async function handleAuth(provider) {
+    await Moralis.enableWeb3({
+      throwOnError: true,
+      provider,
+    });
+
+    const { account, chainId } = Moralis;
+
+    if (!account) {
+      throw new Error(
+        "Connecting to chain failed, as no connected account was found"
+      );
     }
-    console.log(user)
-  };
+    if (!chainId) {
+      throw new Error(
+        "Connecting to chain failed, as no connected chain was found"
+      );
+    }
+
+    const { message } = await Moralis.Cloud.run("requestMessage", {
+      address: account,
+      chain: parseInt(chainId, 16),
+      network: "evm",
+    });
+
+    await Moralis.authenticate({
+      signingMessage: message,
+      throwOnError: true,
+    }).then((user) => {
+      console.log(user);
+    });
+  }
+
+  async function logOut() {
+    await Moralis.User.logOut();
+    console.log("logged out");
+  }
 
   return (
     <div className="navbar">
@@ -80,36 +115,25 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-links_container">
+          <button
+            type="button"
+            className="primary-btn"
+            onClick={() => handleAuth("metamask")}
+          >
+            Connect Wallet
+          </button>
 
-          {!isAuthenticated ? (
-            <button type="button" className="primary-btn" onClick={handleAuth}>
-              Connect Wallet
-            </button>
-          ) : (
-            <Link to={`/profile/${user.id}`}>
-    <p>My Profile</p>
-    </Link> 
-          )}
-          {console.log(user)}
+          <Link to={`/profile/`}>
+            <p>My Profile</p>
+          </Link>
 
-
-
-        
-   
-      
-
-          
-
-
-
-
+          <button type="button" className="primary-btn" onClick={logOut}>
+            logout
+          </button>
         </div>
       </div>
-      
-      
     </div>
   );
 };
 
 export default Navbar;
- 
