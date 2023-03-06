@@ -6,7 +6,7 @@ import Moralis from "moralis-v1";
 
 
 const Navbar = () => {
-  const { authenticate, enableWeb3 } = useMoralis();
+  const { authenticate, enableWeb3, logout } = useMoralis();
   const { isAuthenticated, user } = useMoralis();
 
   const [authError, setAuthError] = useState(null);
@@ -68,6 +68,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-links_container">
           {console.log(isAuthenticated)}
+          
           {!isAuthenticated ? (
             <button
               type="button"
@@ -77,9 +78,12 @@ const Navbar = () => {
               Connect Wallet
             </button>
           ) : (
+            <div className="My-profile-container">
             <Link to={`/profile/${user.id}`}>
               <p>My Profile</p>
             </Link>
+            <button onClick={logout}>Logout</button>
+            </div>
           )}
         </div>
       </div>
