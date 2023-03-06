@@ -5,14 +5,17 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { MoralisProvider } from "react-moralis";
 
+
+
 ReactDOM.render(
   <BrowserRouter>
     <MoralisProvider
-      // initializeOnMount={false}
       serverUrl={process.env.REACT_APP_SERVER_URL ?? ""}
       appId={process.env.REACT_APP_APPLICATION_ID ?? ""}
     >
-      <App />
+     
+        <App />
+   
     </MoralisProvider>
   </BrowserRouter>,
   document.getElementById("root")

@@ -21,22 +21,19 @@ const client = createClient({
 
 function App() {
   return (
-    <WagmiConfig client={client}>
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path=":item/:id" element={<Item />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/user" element={<User />} />
-        </Routes>
-        <Footer />
-      </div>
-    </WagmiConfig>
+    <div>
+      <Navbar />
+          <Routes>
+          
+            <Route path="/" element={<Home />} />
+            <Route path=":item/:id" element={<Item />} />
+            <Route path="/create" element={<Create /> } />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/login" element={ <Login />} />
+            <Route path="/register" element={ <Register />} />
+          </Routes>
+      
+    </div>
   );
 }
 
