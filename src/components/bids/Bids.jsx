@@ -15,15 +15,6 @@ export default function Bids() {
     });
   }, []);
 
-  // const { data, error, isLoading } = useNFTBalances(
-  //   {
-  //     chain: 5,
-  //     address: "0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37",
-  //   },
-  //   {
-  //     autoFetch: true,
-  //   }
-  // );
 
   try {
     if (!data?.nfts || data.nfts.length === 0) {
@@ -34,7 +25,7 @@ export default function Bids() {
            
     return (
       <div className="bids-container">
-        
+     
       <div className="card-wrap">
         {data.nfts.map((nft) => (
           <div className="card-column">
