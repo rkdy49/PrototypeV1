@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import Moralis from "moralis-v1";
 
-
 const Navbar = () => {
   const { authenticate, enableWeb3, logout } = useMoralis();
   const { isAuthenticated, user } = useMoralis();
@@ -67,8 +66,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-links_container">
-          {console.log(isAuthenticated)}
-          
           {!isAuthenticated ? (
             <button
               type="button"
@@ -79,10 +76,13 @@ const Navbar = () => {
             </button>
           ) : (
             <div className="My-profile-container">
-            <Link to={`/profile/${user.id}`}>
-              <p>My Profile</p>
-            </Link>
-            <button onClick={logout}>Logout</button>
+              
+              <button onClick={logout}>Logout</button>
+
+              <Link to={`/profile/${user.id}`}>
+                <p>My Profile</p>
+              </Link>
+
             </div>
           )}
         </div>

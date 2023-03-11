@@ -60,6 +60,13 @@
   margin: 0 1rem;
   cursor: pointer;
 }
+
+.My-profile-container{
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .navbar-sign .primary-btn,
 .navbar-menu_container-links-sign .primary-btn
 {

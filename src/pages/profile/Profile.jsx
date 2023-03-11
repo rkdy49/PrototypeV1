@@ -1,17 +1,17 @@
 import React from "react";
 import "./profile.css";
-import profile_banner from "../../assets/profile_banner.png";
-import profile_pic from "../../assets/profile.jpg";
+import profile_banner from "../../assets/profile_banner.jpg";
+import profile_pic from "../../assets/images.png";
 import { useMoralis, useMoralisQuery } from "react-moralis";
 
 const Profile = () => {
-  const { isAuthenticated, user, Moralis, account } = useMoralis();
+  const {user } = useMoralis();
   const id = user.id;
-  console.log(id);
+  console.log(user);
   const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
     query.equalTo("userAddress", id)
   );
-  console.log(data, null, 2);
+  console.log(data);
 
   // // console.log(data);
   // async function getNFTMetadata() {
@@ -70,19 +70,12 @@ const Profile = () => {
         </div>
         <div className="profile-pic">
           <img src={profile_pic} alt="profile" />
-          <h3>{id}</h3>
+          <h3>{user.attributes.ethAddress.substring(0, 5)}.....{user.attributes.ethAddress.substring(user.attributes.ethAddress.length - 3)}</h3>
         </div>
       </div>
       <div className="profile-bottom">
-        <div className="profile-bottom-input">
-          <input type="text" placeholder="Search Item here" />
-          <select>
-            <option>Recently Listed</option>
-            <option>Popular</option>
-            <option>Low to High</option>
-            <option>High to Low</option>
-          </select>
-        </div>
+        
+        
         <div className="bids-container">
           <div className="card-wrap">
             {cards()}
