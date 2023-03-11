@@ -1,10 +1,11 @@
 import React from "react";
 import "./item.css";
 import creator from "../../assets/seller2.png";
-
+import { contractAddress, contractAddressMarket, abi } from "./../../constants";
 import { useLocation } from "react-router";
 import { useMoralis } from "react-moralis";
 import { useMoralisQuery } from "react-moralis";
+import { ethers } from "ethers";
 
 const Item = () => {
   const { isAuthenticated, user, Moralis, account } = useMoralis();
@@ -27,7 +28,23 @@ const Item = () => {
 
     await initializedSale.save();
   }
-  
+
+  // async function buy() {
+  //   if (window.ethereum) {
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     const signer = provider.getSigner();
+  //     const contract = new ethers.Contract(
+  //       contractAddressMarket,
+  //       abi_marketplace,
+  //       signer
+  //     );
+  //     const response = await contract.initializeSale(contractAddress, 1, {
+  //       value: ethers.utils.parseEther("0.5"),
+  //     });
+  //     console.log(response);
+  //   } else alert("Sorry no wallet found");
+  // }
+
   return (
     <div className="item section__padding">
         <div className="item-image">
