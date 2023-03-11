@@ -3,6 +3,12 @@ import "./profile.css";
 import profile_banner from "../../assets/profile_banner.png";
 import profile_pic from "../../assets/profile.jpg";
 import { useMoralis, useMoralisQuery } from "react-moralis";
+import {
+  contractAddress,
+  contractAddressMarket as marketplaceContractAddress,
+  abi_marketplace as abiMarketplace,
+} from "./../../constants";
+import { ethers } from "ethers";
 
 const Profile = () => {
   const { isAuthenticated, user, Moralis, account } = useMoralis();
@@ -22,9 +28,27 @@ const Profile = () => {
   //   print(metadata);
   // }
 
+  async function getAmountRemaining(res) {
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const marketplaceContract = new ethers.Contract(
+        marketplaceContractAddress,
+        abiMarketplace,
+        signer
+      );
+      const response = await marketplaceContract.getAmountRemaining(
+        "0xe2dC7315fF98CC91790C72878485a899BfC21D88",
+        3
+      );
+      console.log(response);
+    } else alert("Sorry no wallet found");
+  }
+
   function cards() {
     return data.map((res) => (
       <div className="card-column">
+        {getAmountRemaining(res)}
         <div className="bids-card">
           <div
             style={{
@@ -51,10 +75,10 @@ const Profile = () => {
               <p className="bids-title">{res.attributes.nft.metadata?.name}</p>
             </div>
             <div className="bids-card-bottom">
+              <p>Time remaining</p>
               <p>
-                0.20 <span>ETH</span>
+                <span>ETH</span>
               </p>
-              <p>Price:</p>
             </div>
             {/* </Link>  */}
           </div>
