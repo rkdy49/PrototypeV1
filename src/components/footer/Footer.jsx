@@ -9,10 +9,6 @@ const Footer = () => {
       <div className="footer-links">
         <div className="footer-links_logo">
         <div>
-          <img src={''} alt="logo" />
-          <p>CryptoKet</p>
-        </div>
-        <div>
           <h3>Get the lastes Updates</h3>
         </div>
         <div>
@@ -20,30 +16,18 @@ const Footer = () => {
           <button>Email Me!</button>
         </div>
         </div>
-        <div className="footer-links_div">
-          <h4>GearFi</h4>
-          <p>Explore</p>
-          <p>See how this works</p>
-          <p>Counters</p>
-          <p>Reach Out</p>
-        </div>
-        <div className="footer-links_div">
-          <h4>Support</h4>
-          <p>Help center</p>
-          <p>Terms of service</p>
-          <p>Legal</p>
-          <p>Privacy policy</p>
-        </div>
+        
+        
       </div>
       <div className="footer-copyright">
         <div>
-        <p> © {(new Date().getFullYear())} CrpytoKet, Inc. All Rights Reserved</p>
+        <p> © {(new Date().getFullYear())} GEARFI. All Rights Reserved</p>
         </div>
         <div>
           <AiOutlineInstagram size={25} color='white' className='footer-icon' />
           <AiOutlineTwitter size={25} color='white' className='footer-icon'/>
           <RiDiscordFill size={25} color='white' className='footer-icon'/>
-          <FaTelegramPlane size={25} color='white'  className='footer-icon' />
+          
         </div>
 
       </div>
