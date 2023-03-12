@@ -1,7 +1,6 @@
 import React from 'react'
 import './header.css'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+
 
 const Header = () => {
 

@@ -1,4 +1,4 @@
-import { useNFTBalances } from "react-moralis";
+
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
 import { useEffect, useState } from "react";
