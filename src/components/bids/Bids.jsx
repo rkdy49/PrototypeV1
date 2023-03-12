@@ -15,58 +15,63 @@ export default function Bids() {
     });
   }, []);
 
-
   try {
     if (!data?.nfts || data.nfts.length === 0) {
       return <Loader />;
     }
 
-           
-           
     return (
       <div className="bids-container">
-     
-      <div className="card-wrap">
-        {data.nfts.map((nft) => (
-          <div className="card-column">
-           
-              <div className="bids-card">
-                <div
-                  style={{
-                  display: "",
-                  gridTemplateColumns: "repeat(3, 4fr)",
-                  gridGap: "10px",
-                   }}
-                  >
-                   <Link
-                        to={`/post/${nft.token_address._value}${nft.token_id}`}
-                        state={{ data: nft }}
-                    >
-                <div className="bids-card-top">
-                  {nft.metadata?.image && (
-                    <img
-                      src={nft.metadata?.image.replace(
-                        "ipfs://",
-                        "https://ipfs.moralis.io:2053/ipfs/"
-                      )}
-                      alt=""
-                    />
-                  )}
 
-                  <p className="bids-title">{nft.metadata?.name}</p>
+        <div className="bids-container-text">
+          <h1>Discover Latest NFTs</h1>
+        </div>
+
+        <div className="card-wrap">
+          {data.nfts.map((nft) => (
+           
+           <div className="card-column">
+              <Link
+                to={`/nft/${nft.token_address._value}${nft.token_id}`}
+                state={{ data: nft }}
+              >
+               
+                <div className="bids-card">
+                  
+                  <div className="bids-card-top">
+                   
+                    {nft.metadata?.image && (
+                      <img
+                        src={nft.metadata?.image.replace(
+                          "ipfs://",
+                          "https://ipfs.moralis.io:2053/ipfs/"
+                        )}
+                        alt=""
+                      />
+                    )}
+
+                    <p className="bids-title">{nft.metadata?.name}</p>
+                  </div>
+
+                  <div className="bids-card-bottom">
+                    <div>
+                    <p>Price</p>
+                    <p>
+                      0.01 <span>ETH</span>
+                    </p>
+                    </div>
+
+                    <div>
+                    <p>Downpayment</p>
+                    <p>0.003 <span>ETH</span></p>
+                    </div>
+                    
+                  </div>
                 </div>
-                <div className="bids-card-bottom">
-                  <p>
-                    0.20 <span>ETH</span>
-                  </p>
-                  <p>Price:</p>
-                </div>
-            </Link>
+              </Link>
             </div>
-              </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     );
   } catch (error) {

@@ -8,8 +8,8 @@ import { MoralisProvider } from "react-moralis";
 ReactDOM.render(
   <BrowserRouter>
     <MoralisProvider
-      serverUrl="https://gearfi-server.onrender.com/server"
-      appId= "001"
+      serverUrl={process.env.REACT_APP_SERVER_URL ?? ''}
+      appId= {process.env.REACT_APP_APPLICATION_ID ?? ''}
     >
       <App />
     </MoralisProvider>

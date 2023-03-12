@@ -10,10 +10,16 @@ const Header = () => {
     <div className="heading">
       <h2>Buy Now Pay Later is here for NFTs!</h2>
       <p>Experience it seamlessly using GearFi</p>
-      <button>Docs</button>
 
-      <button>Join Discord</button>
-  </div>
+      <a href='https://discord.com/invite/PJp2DbX64U'> 
+        <button >Join Discord</button>
+       </a>
+
+      <a href='https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract'> 
+        <button >Docs</button> 
+      </a>
+    </div>
+            
 </div>
   )
 }

@@ -76,15 +76,25 @@ const Navbar = () => {
             </button>
           ) : (
             <div className="My-profile-container">
-              
               <button onClick={logout}>Logout</button>
 
               <Link to={`/profile/${user.id}`}>
                 <p>My Profile</p>
               </Link>
-
             </div>
           )}
+
+          <a href="https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract"> 
+            <p>Docs</p>
+          </a>
+            
+         
+
+         <a href="https://discord.com/invite/PJp2DbX64U"> 
+            <p>Discord</p>
+          </a>
+           
+          
         </div>
       </div>
     </div>

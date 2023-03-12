@@ -1,20 +1,20 @@
 .bids-container{
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center; */
-  display: grid;
+  justify-content: center;
+ 
   align-items: center;
   margin: auto;
-  width: 90%;
+  
 }
 .bids-container-text h1{
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 28px;
-  line-height: 42px;
   color: #FFFFFF;
-  margin-bottom: 1rem;
+  margin: 0.1rem;
 }
+
 .bids-container-card{
   display: grid;
   grid-template-rows: repeat(4, 1fr);
@@ -52,8 +52,7 @@
 
 .bids-card-bottom{
   display: flex;
-  justify-content: space-between;
-  align-items: center; /* Center the content vertically */
+justify-content: space-between;
 }
 
 .bids-card-top {
@@ -110,8 +109,10 @@
 .card-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 70%;
   height: 100%;
-  margin:100px;
+  margin-top: 10px;
 }
 
 

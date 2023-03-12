@@ -1,6 +1,5 @@
 import React from 'react'
 import './footer.css'
-import nftlogo from '../../assets/logo.png'
 import { AiOutlineInstagram,AiOutlineTwitter, } from "react-icons/ai";
 import { RiDiscordFill } from "react-icons/ri";
 import { FaTelegramPlane } from "react-icons/fa";
@@ -10,7 +9,7 @@ const Footer = () => {
       <div className="footer-links">
         <div className="footer-links_logo">
         <div>
-          <img src={nftlogo} alt="logo" />
+          <img src={''} alt="logo" />
           <p>CryptoKet</p>
         </div>
         <div>
