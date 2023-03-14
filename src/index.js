@@ -8,7 +8,7 @@ import { MoralisProvider } from "react-moralis";
 ReactDOM.render(
   <BrowserRouter>
     <MoralisProvider
-      serverUrl= 'https://gearfi-server.onrender.com/server'
+      serverUrl= 'gearfi-server-production.up.railway.app/server'
       appId= '001'
     >
       <App />
