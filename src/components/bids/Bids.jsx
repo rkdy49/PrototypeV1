@@ -9,7 +9,7 @@ export default function Bids() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios("https://gearfi-server.onrender.com/demo").then(({ data }) => {
+    axios("https://gearfi.onrender.com/getNFTs").then(({ data }) => {
       setData(data);
       // console.log(data.nfts);
     });
