@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useEffect, useState} from "react";
 import "./item.css";
 import { useLocation } from "react-router";
 import {  NftMarketplace_address, abi_marketplace } from "./../../constants";
@@ -7,13 +7,21 @@ import { ethers } from "ethers";
 
 
 const ProfileItem = () => {
-
+ 
   const location = useLocation();
   const nft = location.state?.data;
-  console.log(nft);
-  let LoanRepaid = false;
-  let NFTclaimed = false;
-  let amountRemaining;
+  //console.log(nft);
+  
+
+  const [loanRepaid, setLoanRepaid] = useState()
+  const [nftClaimed, setNftClaimed] = useState()
+  const [timeRemaining, setTimeRemaining] = useState()
+
+  useEffect(() => {
+    isLoanRepaid()
+    getTimeRemaining()
+  }, []);
+
 
  async function getAmountRemaining() {
     if (window.ethereum) {
@@ -34,7 +42,7 @@ const ProfileItem = () => {
       );
       
       console.log(ethers.utils.formatEther(response.toString()));
-      amountRemaining = ethers.utils.formatEther(response.toString())
+    
     } 
     
     else alert("Sorry no wallet found");
@@ -60,6 +68,7 @@ const ProfileItem = () => {
       );
       
       console.log(response.toString()/86400);
+      setTimeRemaining(response.toString()/86400)
       
     } 
     
@@ -86,8 +95,8 @@ const ProfileItem = () => {
         {
           value: ethers.utils.parseEther("0.007"),
         }
-      );
-      
+      )
+      isLoanRepaid()
       console.log(response);
       
     } 
@@ -114,12 +123,10 @@ const ProfileItem = () => {
         nft.token_id,
       );
       
-      console.log(response.state);
-
       if(response.state === 2 ) {
-        LoanRepaid = true
+        setLoanRepaid(true)
       }
-      console.log(LoanRepaid)
+      console.log("Loan Repaid", loanRepaid);
       
     } 
     
@@ -143,22 +150,16 @@ const ProfileItem = () => {
       const response = await marketplaceContract.claimNFTbyBuyer(
         nft.token_address._value,
         nft.token_id,
-      );
+      ).then(()=> { setNftClaimed(true)});
       
       console.log(response);
-      if(response) NFTclaimed = true;
       
     } 
     
     else alert("Sorry no wallet found");
      
   }
-
-  getAmountRemaining()
-  getTimeRemaining()
-  isLoanRepaid()
-  
-
+ 
   return (
     <div className="item section__padding">
         <div className="item-image">
@@ -172,7 +173,7 @@ const ProfileItem = () => {
         </div>
           <div className="item-content">
             <div className="item-content-title">
-              <h1>{nft.metadata?.name}</h1>
+              <h1>{nft.metadata?.name} #{nft.token_id}</h1>
          
             </div>
             <div>
@@ -180,19 +181,21 @@ const ProfileItem = () => {
             
               <p>{nft.metadata?.description}</p>
               </div>
-            { !NFTclaimed ? (
+            { !nftClaimed ? (
              <div>
               <div className="item-content-detail">
               <p>Owner: 0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37</p>
-              <p>{amountRemaining}</p>
+              <p>Time Remaining : {timeRemaining} Days</p>
               <p>Downpayment : 30%</p>
               <p>Repayment Duration : 4 days</p>
             </div>
 
             <div className="item-content-buy">  
 
-              { !LoanRepaid? (
-                  <button onClick={()=> claimNFT()}>
+             
+              {
+                loanRepaid? (
+                  <button className="primary-btn" onClick={()=> claimNFT()}>
                     Claim NFT
                   </button>
                 )

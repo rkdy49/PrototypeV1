@@ -9,9 +9,9 @@ export default function Bids() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    axios("https://gearfi-server.onrender.com/demo").then(({ data }) => {
+    axios("https://gearfi.onrender.com/getNFTs").then(({ data }) => {
       setData(data);
-      // console.log(data.nfts);
+      console.log(data.nfts);
     });
   }, []);
 
@@ -50,7 +50,7 @@ export default function Bids() {
                       />
                     )}
 
-                    <p className="bids-title">{nft.metadata?.name}</p>
+                    <p className="bids-title">{nft.metadata?.name} #{nft.token_id}</p>
                   </div>
 
                   <div className="bids-card-bottom">

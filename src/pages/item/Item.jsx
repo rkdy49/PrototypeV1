@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./item.css";
 
 import {  NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { useLocation } from "react-router";
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
+import { Link } from "react-router-dom";
 
 const Item = () => {
-  const { isAuthenticated, user, Moralis, account } = useMoralis();
+  const {user, Moralis } = useMoralis();
 
   const location = useLocation();
   const nft = location.state?.data;
-  console.log(nft.token_address._value);
+  //console.log(nft.token_address._value);
+ const [enabled, setEnabled] = useState()
   
   async function storeInitializedSale(nft) {
 
@@ -36,14 +38,14 @@ const Item = () => {
       );
      
       const response = await contract.initializeSale(nft.token_address._value, nft.token_id, {
-        value: ethers.utils.parseEther("0.003"),
+        value: ethers.utils.parseEther("0.003")
+      }).then(()=>{
+        storeInitializedSale()
+        setEnabled(false)
       });
 
       console.log(response)
 
-      if(response){
-        storeInitializedSale(nft)
-      }
     } 
 
     else alert("Sorry no wallet found");
@@ -64,12 +66,12 @@ const Item = () => {
         </div>
           <div className="item-content">
             <div className="item-content-title">
-              <h1>{nft?.metadata.name}</h1>
+              <h1>{nft?.metadata.name} #{nft.token_id}</h1>
          
             </div>
             
             <div className="item-content-detail">
-              <p>{nft?.metadata.description}</p>
+              <p>Descrirption: {nft?.metadata.description}</p>
               <p>Owner: 0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37</p>
               <p>Price: 0.01 ETH</p>
               <p>Downpayment : 30%</p>
@@ -77,14 +79,19 @@ const Item = () => {
             </div>
             <div className="item-content-buy">
               
+        
               <button 
               className="primary-btn" 
               onClick={()=>buy()}
+              disabled = {enabled}
               > 
 
               Buy Now For 0.003 ETH 
 
               </button>
+
+              
+              
 
             </div>
           </div>

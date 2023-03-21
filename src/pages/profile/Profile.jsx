@@ -8,16 +8,14 @@ import profile_pic from "../../assets/images.png";
 
 
 const Profile = () => {
-  const {user } = useMoralis();
+  const {user} = useMoralis();
   const id = user.id;
   console.log(user);
   const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
     query.equalTo("userAddress", id)
   );
-  // console.log(data);
-
-
-  
+    
+   
 
   function cards() {
     return data.map((res) => (
@@ -48,10 +46,7 @@ const Profile = () => {
               <p className="bids-title">{res.attributes.nft.metadata?.name}</p>
             </div>
             <div className="bids-card-bottom">
-              <p>Time remaining</p>
-              <p>
-                <span>ETH</span>
-              </p>
+              
             </div>
             </Link> 
           </div>
