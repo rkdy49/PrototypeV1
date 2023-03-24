@@ -184,10 +184,8 @@ const ProfileItem = () => {
             { !nftClaimed ? (
              <div>
               <div className="item-content-detail">
-              <p>Owner: 0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37</p>
+              <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
               <p>Time Remaining : {timeRemaining} Days</p>
-              <p>Downpayment : 30%</p>
-              <p>Repayment Duration : 4 days</p>
             </div>
 
             <div className="item-content-buy">  
@@ -203,7 +201,7 @@ const ProfileItem = () => {
                 (
                   <button className="primary-btn" onClick={()=>repay()} > 
 
-                    Repay 0.007 ETH 
+                    Pay 0.007 ETH 
 
                   </button>
                 )

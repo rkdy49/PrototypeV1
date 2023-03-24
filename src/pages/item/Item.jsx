@@ -28,6 +28,19 @@ const Item = () => {
   }
 
   async function buy() {
+    const accounts = await window.ethereum.request({method: 'eth_accounts'})
+    const chainId = await window.ethereum.request({method: 'eth_chainId'})
+    
+    if(accounts.length === 0) {
+      alert("Please connect Wallet")
+      return
+    }
+
+    if( chainId !== '0x5') {
+      alert("Please switch to Goerli Testnet")
+      return
+    }
+
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -72,7 +85,7 @@ const Item = () => {
             
             <div className="item-content-detail">
               <p>Descrirption: {nft?.metadata.description}</p>
-              <p>Owner: 0x45F0bF42fc26923e88a46b15Ad22B89fA50Dbb37</p>
+              <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
               <p>Price: 0.01 ETH</p>
               <p>Downpayment : 30%</p>
               <p>Repayment Duration : 4 days</p>
