@@ -15,7 +15,7 @@ const Item = () => {
   //console.log(nft.token_address._value);
  const [enabled, setEnabled] = useState()
   
-  async function storeInitializedSale(nft) {
+  async function storeInitializedSale() {
 
     const InitializedSale = Moralis.Object.extend("Sales");
 
