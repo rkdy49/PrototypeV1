@@ -43,7 +43,7 @@ const Profile = () => {
                 />
               )}
 
-              <p className="bids-title">{res.attributes.nft.metadata?.name}</p>
+              <p className="bids-title">{res.attributes.nft.metadata?.name} #{res.attributes.nft.token_id}</p>
             </div>
             <div className="bids-card-bottom">
               

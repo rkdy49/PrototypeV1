@@ -203,7 +203,7 @@ const ProfileItem = () => {
                 (
                   <button className="primary-btn" onClick={()=>repay()} > 
 
-                    Repay 0.07 ETH 
+                    Repay 0.007 ETH 
 
                   </button>
                 )
