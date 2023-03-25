@@ -86,6 +86,13 @@ height: 10vh;
   color: #FFFFFF;
   width: 500px;
 }
+.item-content-detail p span{
+  font-size: 12px;
+  font-weight: 200;
+  line-height: 26px;
+  color: #d6d6d6;
+  width: 500px;
+}
 .item-content-buy .primary-btn{
   background: var(--primary-btn);
   border-radius: 10px;

@@ -186,6 +186,7 @@ const ProfileItem = () => {
               <div className="item-content-detail">
               <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
               <p>Time Remaining : {timeRemaining} Days</p>
+              <p><span>*Note: Failure to pay full amount in the remaining time will result in default of the sale, which means you won't be able to claim your NFT.</span></p>
             </div>
 
             <div className="item-content-buy">  

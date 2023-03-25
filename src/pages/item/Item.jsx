@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import "./item.css";
 
-import {  NftMarketplace_address, abi_marketplace } from "./../../constants";
+import { NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { useLocation } from "react-router";
 import { useMoralis } from "react-moralis";
 import { ethers } from "ethers";
 import { Link } from "react-router-dom";
 
 const Item = () => {
-  const {user, Moralis } = useMoralis();
+  const { user, Moralis } = useMoralis();
 
   const location = useLocation();
   const nft = location.state?.data;
   //console.log(nft.token_address._value);
- const [enabled, setEnabled] = useState()
-  
-  async function storeInitializedSale() {
+  const [sale, setSale] = useState();
 
+  async function storeInitializedSale() {
     const InitializedSale = Moralis.Object.extend("Sales");
 
     const initializedSale = new InitializedSale();
-    
+
     initializedSale.set("userAddress", user.id);
     initializedSale.set("nft", nft);
 
@@ -28,17 +27,17 @@ const Item = () => {
   }
 
   async function buy() {
-    const accounts = await window.ethereum.request({method: 'eth_accounts'})
-    const chainId = await window.ethereum.request({method: 'eth_chainId'})
-    
-    if(accounts.length === 0) {
-      alert("Please connect Wallet")
-      return
+    const accounts = await window.ethereum.request({ method: "eth_accounts" });
+    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+
+    if (accounts.length === 0) {
+      alert("Please connect Wallet");
+      return;
     }
 
-    if( chainId !== '0x5') {
-      alert("Please switch to Goerli Testnet")
-      return
+    if (chainId !== "0x5") {
+      alert("Please switch to Goerli Testnet");
+      return;
     }
 
     if (window.ethereum) {
@@ -49,66 +48,60 @@ const Item = () => {
         abi_marketplace,
         signer
       );
-     
-      const response = await contract.initializeSale(nft.token_address._value, nft.token_id, {
-        value: ethers.utils.parseEther("0.003")
-      }).then(()=>{
-        storeInitializedSale()
-        setEnabled(false)
-      });
 
-      console.log(response)
+      const response = await contract
+        .initializeSale(nft.token_address._value, nft.token_id, {
+          value: ethers.utils.parseEther("0.003"),
+        })
+        .then(() => {
+          storeInitializedSale();
+          setSale(true);
+        });
 
-    } 
-
-    else alert("Sorry no wallet found");
-
+      console.log(response);
+    } else alert("Sorry no wallet found");
   }
 
   return (
     <div className="item section__padding">
-
-        <div className="item-image">
+      <div className="item-image">
         <img
-            src={nft.metadata?.image.replace(
-              "ipfs://",
-              "https://ipfs.moralis.io:2053/ipfs/"
-            )}
-             alt=""
+          src={nft.metadata?.image.replace(
+            "ipfs://",
+            "https://ipfs.moralis.io:2053/ipfs/"
+          )}
+          alt=""
         />
-        </div>
-          <div className="item-content">
-            <div className="item-content-title">
-              <h1>{nft?.metadata.name} #{nft.token_id}</h1>
-         
-            </div>
-            
-            <div className="item-content-detail">
-              <p>Descrirption: {nft?.metadata.description}</p>
-              <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
-              <p>Price: 0.01 ETH</p>
-              <p>Downpayment : 30%</p>
-              <p>Repayment Duration : 4 days</p>
-            </div>
-            <div className="item-content-buy">
-              
-        
-              <button 
-              className="primary-btn" 
-              onClick={()=>buy()}
-              disabled = {enabled}
-              > 
-
-              Buy Now For 0.003 ETH 
-
-              </button>
-
-              
-              
-
-            </div>
-          </div>
       </div>
+      <div className="item-content">
+        <div className="item-content-title">
+          <h1>
+            {nft?.metadata.name} #{nft.token_id}
+          </h1>
+        </div>
+
+        <div className="item-content-detail">
+          <p>Descrirption: {nft?.metadata.description}</p>
+          <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
+          <p>Price: 0.01 ETH</p>
+          <p>Downpayment : 30%</p>
+          <p>Repayment Duration : 4 days</p>
+        </div>
+        <div className="item-content-buy">
+          {sale ? (
+            <Link
+              to={`/profileitem/${nft.token_address._value}${nft.token_id}`}
+            >
+              <button className="primary-btn"> Checkout Sale </button>
+            </Link>
+          ) : (
+            <button className="primary-btn" onClick={() => buy()}>
+              Buy Now For 0.003 ETH
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

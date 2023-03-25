@@ -7,17 +7,7 @@ const Footer = () => {
   return (
     <div className='footer section__padding'>
       <div className="footer-links">
-        <div className="footer-links_logo">
-        <div>
-          <h3>Get the lastes Updates</h3>
-        </div>
-        <div>
-          <input type="text" placeholder='Your Email' />
-          <button>Email Me!</button>
-        </div>
-        </div>
-        
-        
+      
       </div>
       <div className="footer-copyright">
         <div>
