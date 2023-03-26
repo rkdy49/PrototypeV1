@@ -90,7 +90,7 @@ const Item = () => {
         <div className="item-content-buy">
           {sale ? (
             <Link
-              to={`/profileitem/${nft.token_address._value}${nft.token_id}`}
+             to={`/profile/${user.id}`}
             >
               <button className="primary-btn"> Checkout Sale </button>
             </Link>

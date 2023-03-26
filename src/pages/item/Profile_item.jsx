@@ -3,11 +3,13 @@ import "./item.css";
 import { useLocation } from "react-router";
 import {  NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { ethers } from "ethers";
+import { useMoralis } from "react-moralis";
 
 
 
 const ProfileItem = () => {
  
+  const {user} = useMoralis();
   const location = useLocation();
   const nft = location.state?.data;
   //console.log(nft);
@@ -23,31 +25,7 @@ const ProfileItem = () => {
   }, []);
 
 
- async function getAmountRemaining() {
-    if (window.ethereum) {
-      
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      
-      const signer = provider.getSigner();
-      
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
 
-      const response = await marketplaceContract.getAmountRemaining(
-        nft.token_address._value,
-        nft.token_id
-      );
-      
-      console.log(ethers.utils.formatEther(response.toString()));
-    
-    } 
-    
-    else alert("Sorry no wallet found");
-     
-  }
 
   async function getTimeRemaining() {
     if (window.ethereum) {
@@ -96,7 +74,7 @@ const ProfileItem = () => {
           value: ethers.utils.parseEther("0.007"),
         }
       )
-      isLoanRepaid()
+      
       console.log(response);
       
     } 
@@ -121,12 +99,16 @@ const ProfileItem = () => {
       const response = await marketplaceContract.getLoanData(
         nft.token_address._value,
         nft.token_id,
-      );
+      ).then(()=> {   
+        
+          if(response.state === 2 ) {
+            setLoanRepaid(true)
+          }
+          console.log("Loan Repaid", loanRepaid);
+        
+        });
       
-      if(response.state === 2 ) {
-        setLoanRepaid(true)
-      }
-      console.log("Loan Repaid", loanRepaid);
+    
       
     } 
     
@@ -210,8 +192,14 @@ const ProfileItem = () => {
              </div>
              </div>
             
-            ) : ''
+            ) 
             
+            : 
+            
+            <div className="item-content-detail">
+            <p>Owner: {user.attributes.ethAddress}</p>
+            <p><span> Checout your NFT on testnet.opensea.io (Goerli) </span></p>
+            </div>
             }
 
             </div>
