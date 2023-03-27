@@ -11,15 +11,15 @@ const ProfileItem = () => {
   const nft = location.state?.data;
   //console.log(nft);
 
-  const [loanRepaid, setLoanRepaid] = useState();
-  const [nftClaimed, setNftClaimed] = useState();
+  const [loanRepaid, setLoanRepaid] = useState(false);
+  const [nftClaimed, setNftClaimed] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState();
 
   useEffect(() => {
-    setLoanRepaid(isLoanRepaid())
-    setNftClaimed(isNFTClaimed())
+  
+    setLoanRepaid(isLoanRepaid());
+    setNftClaimed(isNFTClaimed());
     //setTimeRemaining(getTimeRemaining())
-    
   }, []);
 
   async function getTimeRemaining() {
@@ -40,10 +40,8 @@ const ProfileItem = () => {
       );
 
       console.log(response.toString() / 86400);
-      return (response.toString() / 86400);
-    } 
-    
-    else alert("Sorry no wallet found");
+      return response.toString() / 86400;
+    } else alert("Sorry no wallet found");
   }
 
   async function repay() {
@@ -59,7 +57,7 @@ const ProfileItem = () => {
       alert("Please switch to Goerli Testnet");
       return;
     }
-    
+
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -95,16 +93,17 @@ const ProfileItem = () => {
         signer
       );
 
-      const response = await marketplaceContract.getLoanData(nft.token_address._value, nft.token_id)
+      const response = await marketplaceContract.getLoanData(
+        nft.token_address._value,
+        nft.token_id
+      );
       if (response.state === 2) {
-        console.log("Loan state (Repaid)", response.state );
-        return true
+        console.log("Loan state (Repaid)", response.state);
+        return true;
       }
-    
-    }
-    
+      else return false
+    } 
     else alert("Sorry no wallet found");
-
   }
 
   async function claimNFT() {
@@ -124,12 +123,10 @@ const ProfileItem = () => {
         .then(() => {
           console.log(response);
         });
-
-      
     } else alert("Sorry no wallet found");
   }
 
-  async function isNFTClaimed(){
+  async function isNFTClaimed() {
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -141,18 +138,19 @@ const ProfileItem = () => {
         signer
       );
 
-      const response = await marketplaceContract.getLoanData(nft.token_address._value, nft.token_id)
-      
-      if (response.state === 3) {
-        console.log("Loan state (claimed)", response.state );
-        return true
-      }
-    }
-    
-    else alert("Sorry no wallet found");
+      const response = await marketplaceContract.getLoanData(
+        nft.token_address._value,
+        nft.token_id
+      );
 
+      if (response.state === 3) {
+        console.log("Loan state (claimed)", response.state);
+        return true;
+      }
+      else return false
+    } else alert("Sorry no wallet found");
   }
- 
+
   return (
     <div className="item section__padding">
       <div className="item-image">
@@ -174,8 +172,22 @@ const ProfileItem = () => {
           <div className="item-content-detail">
             <p>{nft.metadata?.description}</p>
           </div>
-            {console.log(nftClaimed)}
+           
           {!nftClaimed ? (
+            <div className="item-content-detail">
+              <p>Owner: {user?.attributes.ethAddress}</p>
+              <p>
+                <span>
+                  {" "}
+                  Checkout your NFT on{" "}
+                  <a href="https://testnets.opensea.io/">
+                    https://testnets.opensea.io
+                  </a>{" "}
+                  (Goerli){" "}
+                </span>
+              </p>
+            </div>
+          ) : (
             <div>
               <div className="item-content-detail">
                 <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
@@ -190,7 +202,6 @@ const ProfileItem = () => {
               </div>
 
               <div className="item-content-buy">
-                
                 {loanRepaid ? (
                   <button className="primary-btn" onClick={() => claimNFT()}>
                     Claim NFT
@@ -201,13 +212,6 @@ const ProfileItem = () => {
                   </button>
                 )}
               </div>
-            </div>
-          ) : (
-            <div className="item-content-detail">
-              <p>Owner: {user?.attributes.ethAddress}</p>
-              <p>
-                <span> Checkout your NFT on <a href="https://testnets.opensea.io/">https://testnets.opensea.io</a> (Goerli) </span>
-              </p>
             </div>
           )}
         </div>
