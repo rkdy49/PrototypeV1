@@ -175,7 +175,7 @@ const ProfileItem = () => {
             <p>{nft.metadata?.description}</p>
           </div>
             {console.log(nftClaimed)}
-          {nftClaimed ? (
+          {!nftClaimed ? (
             <div>
               <div className="item-content-detail">
                 <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
