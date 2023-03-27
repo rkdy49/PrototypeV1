@@ -87,10 +87,17 @@ height: 10vh;
   width: 500px;
 }
 .item-content-detail p span{
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 200;
   line-height: 26px;
   color: #d6d6d6;
+  width: 500px;
+}
+.item-content-detail a{
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 26px;
+  color: #00d6ff;
   width: 500px;
 }
 .item-content-buy .primary-btn{

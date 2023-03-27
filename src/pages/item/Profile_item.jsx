@@ -206,7 +206,7 @@ const ProfileItem = () => {
             <div className="item-content-detail">
               <p>Owner: {user?.attributes.ethAddress}</p>
               <p>
-                <span> Checout your NFT on <a href="https://testnets.opensea.io/">https://testnets.opensea.io/</a> (Goerli) </span>
+                <span> Checkout your NFT on <a href="https://testnets.opensea.io/">https://testnets.opensea.io</a> (Goerli) </span>
               </p>
             </div>
           )}

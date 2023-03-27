@@ -17,7 +17,7 @@ const Profile = () => {
   );
     
 
-  function cards() {
+   function cards() {
     return data?.map((res) => (
       <div className="card-column">
         <div className="bids-card">
@@ -71,7 +71,7 @@ const Profile = () => {
       <div className="profile-bottom">  
         <div className="bids-container">
           <div className="card-wrap">
-            {cards()}
+            { data? cards() : ""}
           </div>
         </div>
       </div>
