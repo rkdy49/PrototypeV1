@@ -16,7 +16,6 @@ const ProfileItem = () => {
   const [timeRemaining, setTimeRemaining] = useState();
 
   useEffect(() => {
-  
     setLoanRepaid(isLoanRepaid());
     setNftClaimed(isNFTClaimed());
     //setTimeRemaining(getTimeRemaining())
@@ -97,12 +96,16 @@ const ProfileItem = () => {
         nft.token_address._value,
         nft.token_id
       );
+      
       if (response.state === 2) {
         console.log("Loan state (Repaid)", response.state);
         return true;
       }
+
       else return false
+
     } 
+
     else alert("Sorry no wallet found");
   }
 
@@ -147,8 +150,12 @@ const ProfileItem = () => {
         console.log("Loan state (claimed)", response.state);
         return true;
       }
+      
       else return false
-    } else alert("Sorry no wallet found");
+
+    } 
+    
+    else alert("Sorry no wallet found");
   }
 
   return (
