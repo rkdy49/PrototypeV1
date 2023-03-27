@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./profile.css";
 import { useMoralis, useMoralisQuery } from "react-moralis";
@@ -9,16 +9,16 @@ import profile_pic from "../../assets/images.png";
 
 const Profile = () => {
   const {user} = useMoralis();
-  const id = user.id;
+  
   console.log(user);
+
   const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
-    query.equalTo("userAddress", id)
+    query.equalTo("userAddress", user?.id)
   );
     
-   
 
   function cards() {
-    return data.map((res) => (
+    return data?.map((res) => (
       <div className="card-column">
         <div className="bids-card">
           <div
@@ -33,9 +33,9 @@ const Profile = () => {
           state={{ data: res.attributes.nft}}
       > 
             <div className="bids-card-top">
-              {res.attributes.nft.metadata?.image && (
+              {res.attributes.nft.metadata.image && (
                 <img
-                  src={res.attributes.nft.metadata?.image.replace(
+                  src={res.attributes.nft.metadata.image.replace(
                     "ipfs://",
                     "https://ipfs.moralis.io:2053/ipfs/"
                   )}
@@ -43,7 +43,7 @@ const Profile = () => {
                 />
               )}
 
-              <p className="bids-title">{res.attributes.nft.metadata?.name} #{res.attributes.nft.token_id}</p>
+              <p className="bids-title">{res.attributes.nft.metadata.name} #{res.attributes.nft.token_id}</p>
             </div>
             <div className="bids-card-bottom">
               
@@ -64,7 +64,7 @@ const Profile = () => {
         </div>
         <div className="profile-pic">
           <img src={profile_pic} alt="profile" />
-          <h3>{user.attributes.ethAddress.substring(0, 5)}....{user.attributes.ethAddress.substring(user.attributes.ethAddress.length - 4)}</h3>
+          <h3>{user?.attributes.ethAddress.substring(0, 5)}....{user?.attributes.ethAddress.substring(user.attributes.ethAddress.length - 4)}</h3>
         </div>
       </div>
 
