@@ -11,7 +11,7 @@ export default function Bids() {
   useEffect(() => {
     axios("https://gearfi.onrender.com/getNFTs").then(({ data }) => {
       setData(data);
-      console.log(data.nfts);
+      //console.log(data.nfts);
     });
   }, []);
 

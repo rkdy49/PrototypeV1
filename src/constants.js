@@ -1,6 +1,5 @@
-export const contractAddress = "0x003109d0b9C15A82665EF6E1C06094C8A231b0fe";
-export const NftMarketplace_address =
-  "0x5d5d67974e22659b663567898f5157c358155b02";
+export const nftContractAddress = "0x003109d0b9C15A82665EF6E1C06094C8A231b0fe";
+export const NftMarketplace_address ="0x5d5d67974e22659b663567898f5157c358155b02";
 
 export const abi = [
 	{
