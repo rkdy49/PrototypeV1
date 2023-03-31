@@ -4,7 +4,7 @@ import "./profile.css";
 import { useMoralis, useMoralisQuery } from "react-moralis";
 import profile_banner from "../../assets/profile_banner.jpg";
 import profile_pic from "../../assets/images.png";
-import { nftContractAddress, abi, NftMarketplace_address } from "./../../constants";
+import { nftContractAddress, abi, NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { ethers } from "ethers";
 
 const Profile = () => {
@@ -66,9 +66,12 @@ const Profile = () => {
 
       const nftContract = new ethers.Contract(nftContractAddress, abi, signer);
       const owner = await nftContract.ownerOf(token_address, token_id);
+
+      const marketplaceContract = new ethers.Contract(NftMarketplace_address, abi_marketplace, signer);
+      const loanData = await marketplaceContract.getLoanData(token_address, token_id);
       console.log("owner address ", owner);
 
-      if (owner === NftMarketplace_address || owner === user?.attributes.ethAddress) {
+      if ((loanData.buyer === user?.attributes.ethAddress && loanData.state !== 3) || (owner === user?.attributes.ethAddress && loanData.state === 3)) {
       
         return true;
       
