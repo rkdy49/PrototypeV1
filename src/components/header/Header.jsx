@@ -10,6 +10,7 @@ const Header = () => {
 
   return (
   <div class="hero-section">
+    <img src={banner}/>
     <div className="heading">
       <h2>Buy Now Pay Later is here for NFTs!</h2>
       <p>Experience it seamlessly using GearFi</p>
