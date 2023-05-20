@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react'
 const API = 'https://jsonplaceholder.typicode.com/users'
 
 const Chart = () => {
-  let [users, setUsers] = useState() 
-
-
-  const UserData = ({users}) => {
-    console.log("label 1", users)
+  const [users, setUsers] = useState([]) 
+  
+  const UserData = (users) => {
+    console.log(users)
     return (
       <>
         {users.map((curUser) => {
@@ -23,7 +22,7 @@ const Chart = () => {
       </>
     )
   }
-
+  
   const fetchUser = async () => {
     try {
       const res = await fetch(API)
@@ -43,7 +42,11 @@ const Chart = () => {
 
   useEffect(() => {
     fetchUser()
-  }, [users])
+  }, [])
+
+  useEffect(() => {
+    console.log('users now:', users);
+  }, [users]);
 
   return (
     <>
@@ -53,13 +56,23 @@ const Chart = () => {
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
-            {/* <th>Address</th> */}
           </tr>
         </thead>
-        {console.log("label 2", users)}
         <tbody>
-        {users?<UserData users={users} key='1'/>:''}
-      </tbody>
+          {users.length > 0 ? (
+            users.map(user => (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3">Loading...</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </>
   )

@@ -4,17 +4,13 @@ import "./index.css";
 
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { MoralisProvider } from "react-moralis";
+import { UserProvider } from './components/UserContext/UserContext';
 
 ReactDOM.render(
   <BrowserRouter>
-    <MoralisProvider
-      serverUrl="https://gearfi-server.onrender.com/server"
-     
-      appId= "001"
-    >
+   <UserProvider>
       <App />
-    </MoralisProvider>
+      </UserProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
