@@ -40,6 +40,7 @@ const Chart = () => {
     )
   }
 
+
   const fetchUser = async () => {
     try {
       // const res = await fetch(API)

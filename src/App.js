@@ -2,7 +2,6 @@ import './App.css';
 import {Navbar,Footer} from './components'
 import {Home,Profile,Item, Profile_item} from './pages'
 import { Routes, Route } from "react-router-dom";
- 
 function App() {
 
   return (

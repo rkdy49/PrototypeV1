@@ -10,16 +10,16 @@ import { ethers } from "ethers";
 const Profile = () => {
   const { user } = useMoralis();
 
-  console.log("user: ", user);
+  //console.log("user: ", user);
 
   const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
     query.equalTo("userAddress", user?.id)
   );
 
   function cards() {
-    return data?.map((res) => (
-      <div className="card-column">
-        { ownerOf(res.attributes.nft.token_id) ? 
+     return data?.map((res) => (
+      
+      <div className="card-column"> 
         <div className="bids-card">
         <div
           style={{
@@ -52,24 +52,24 @@ const Profile = () => {
           </Link>
         </div>
       </div>
-        : ""}
+      
         
       </div>
      
     ));
   }
 
-  async function ownerOf(token_address, token_id) {
+  async function checkOwner(token_address, token_id) {
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
       const nftContract = new ethers.Contract(nftContractAddress, abi, signer);
-      const owner = await nftContract.ownerOf(token_address, token_id);
+      const owner = await nftContract.ownerOf(token_id);
 
       const marketplaceContract = new ethers.Contract(NftMarketplace_address, abi_marketplace, signer);
       const loanData = await marketplaceContract.getLoanData(token_address, token_id);
-      console.log("owner address ", owner);
+      //console.log("owner address ", owner);
 
       if ((loanData.buyer === user?.attributes.ethAddress && loanData.state !== 3) || (owner === user?.attributes.ethAddress && loanData.state === 3)) {
       
@@ -90,9 +90,7 @@ const Profile = () => {
           <img src={profile_pic} alt="profile" />
           <h3>
             {user?.attributes.ethAddress.substring(0, 5)}....
-            {user?.attributes.ethAddress.substring(
-              user.attributes.ethAddress.length - 4
-            )}
+            {user?.attributes.ethAddress.substring(user.attributes.ethAddress.length - 4)}
           </h3>
         </div>
       </div>

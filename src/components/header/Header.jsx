@@ -3,12 +3,14 @@ import './header.css'
 import banner from '../../assets/GEARFI BANNER.png'
 import chart from '../chart/Chart'
 
+
+
+
 const Header = () => {
 
   return (
   <div class="hero-section">
     <div className="heading">
-      <img src={banner} alt="" className='banner'/>
       <h2>Buy Now Pay Later is here for NFTs!</h2>
       <p>Experience it seamlessly using GearFi</p>
 
