@@ -1,33 +1,51 @@
 import { useEffect, useState } from 'react'
+import data from './data.json'
+
+console.log("prime: ", data)
 
 const API = 'https://jsonplaceholder.typicode.com/users'
 
 const Chart = () => {
-  const [users, setUsers] = useState([]) 
-  
-  const UserData = (users) => {
-    console.log(users)
+  let [users, setUsers] = useState()
+
+  const UserData = ({ users }) => {
+    console.log('label 1', users)
     return (
       <>
         {users.map((curUser) => {
-          const { id, name, email } = curUser
+          const {
+            COLLECTION,
+            FLOOR_PRICE,
+            oneD_CHANGE,
+            sevenD_CHANGE,
+            oneD_VOLUME,
+            sevenD_VOLUME,
+            OWNERS,
+            SUPPLY,
+          } = curUser
           return (
             <tr>
-              <th>{id}</th>
-              <th>{name}</th>
-              <th>{email}</th>
+              <th>{COLLECTION}</th>
+              <th>{FLOOR_PRICE}</th>
+              <th>{oneD_CHANGE}</th>
+              <th>{sevenD_CHANGE}</th>
+              <th>{oneD_VOLUME}</th>
+              <th>{sevenD_VOLUME}</th>
+              <th>{OWNERS}</th>
+              <th>{SUPPLY}</th>
             </tr>
           )
         })}
       </>
     )
   }
-  
+
+
   const fetchUser = async () => {
     try {
-      const res = await fetch(API)
-      const data = await res.json()
-      console.log('data', data)
+      // const res = await fetch(API)
+      // const data = await res.json()
+      // console.log('data', data)
 
       if (data.length > 0) {
         console.log('data here is : ', data)
@@ -42,37 +60,25 @@ const Chart = () => {
 
   useEffect(() => {
     fetchUser()
-  }, [])
-
-  useEffect(() => {
-    console.log('users now:', users);
-  }, [users]);
+  }, [users])
 
   return (
     <>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>COLLECTION</th>
+            <th>FLOOR PRICE</th>
+            <th>1D CHANGE</th>
+            <th>7D CHANGE</th>
+            1D VOLUME
+            <th>7D VOLUME</th>
+            <th>OWNERS</th>
+            <th>SUPPLY</th>
           </tr>
         </thead>
-        <tbody>
-          {users.length > 0 ? (
-            users.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="3">Loading...</td>
-            </tr>
-          )}
-        </tbody>
+        {console.log('label 2', users)}
+        <tbody>{users ? <UserData users={users} key='1' /> : ''}</tbody>
       </table>
     </>
   )

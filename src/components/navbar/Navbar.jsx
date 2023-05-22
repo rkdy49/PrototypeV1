@@ -7,7 +7,7 @@ import MetaMaskAuthButton from '../metaskauth/metamask'
 const Navbar = () => {
 
   return (
-    <div className='flex items-center px-6 py-2 -4'>
+    <div className='flex justify-between items-center px-6 py-2 h-20 bg-[#24252d]'>
       <div className='flex items-center'>
         <div className='mr-2 mx-4 flex items-center text-white'>
           <Link to='/'>
@@ -28,9 +28,9 @@ const Navbar = () => {
               Discord
             </li>
           </a>
-          <MetaMaskAuthButton />
         </div>
       </div>
+      <MetaMaskAuthButton />
     </div>
   );
 };
