@@ -1,5 +1,5 @@
 body{
-  background: var(--color-bg);
+  background: #000000;
   scroll-behavior: smooth;
 }
 a{

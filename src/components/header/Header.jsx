@@ -5,7 +5,7 @@ import Chart from '../Chart/Chart'
 
 const Header = () => {
   return (
-    <div className=' flex flex-col justify-center text-white p-5 items-center border-2 border-white'>
+    <div className=' flex flex-col justify-center text-white p-5 items-center'>
       <div className='mt-20'>
         <img src={banner} class='banner' />
       </div>

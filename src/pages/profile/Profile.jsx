@@ -108,3 +108,27 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+
+{/* <div className="profile section__padding">
+  <div className="profile-top">
+    <div className="profile-banner">
+      <img src={profile_banner} alt="banner" className="w-full" />
+    </div>
+    <div className="profile-pic flex flex-col items-center">
+      <img src={profile_pic} alt="profile" className="border-4 border-bg rounded-full w-24 h-24" />
+      <h3 className="font-semibold text-xl text-center text-white">
+        {user?.attributes.ethAddress.substring(0, 5)}....
+        {user?.attributes.ethAddress.substring(user.attributes.ethAddress.length - 4)}
+      </h3>
+    </div>
+  </div>
+  <div className="profile-bottom">
+    <div className="bids-container">
+      <div className="card-wrap">
+        {data ? cards() : ""}
+      </div>
+    </div>
+  </div>
+</div> */}

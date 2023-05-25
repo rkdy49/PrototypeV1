@@ -6,7 +6,6 @@ function App() {
 
   return (
     <div>
-      {/* <Navbar classNam="w-12"/> */}
           <Routes>
           
             <Route path="/" element={<Home />} />

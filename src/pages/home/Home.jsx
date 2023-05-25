@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bids, Footer, Header } from '../../components'
-import Chart from '../../components/chart/Chart.jsx'
+import Chart from '../../components/Chart/Chart.jsx'
 import { Navbar } from '../../components'
 
 const Home = () => {

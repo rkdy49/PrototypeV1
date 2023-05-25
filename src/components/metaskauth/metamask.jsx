@@ -1,11 +1,11 @@
-import { HiMenuAlt4 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 import React, { useState, useContext, useRef } from 'react'
+import { Link } from "react-router-dom";
 import { UserContext } from '../UserContext/UserContext'
 const userImage = require('../../assets/user.jpg')
 
 const MetaMaskAuthButton = () => {
- const { setUser } = useContext(UserContext)
+ const {user, setUser } = useContext(UserContext)
  const [isConnected, setIsConnected] = useState(false)
  const [userAddress, setUserAddress] = useState('')
  const [userId, setUserId] = useState('')
@@ -21,8 +21,7 @@ const MetaMaskAuthButton = () => {
  }
 
  const handleViewProfile = () => {}
-
- const sliceIt = (address) => {
+  const sliceIt = (address) => {
   return `${address.slice(0, 4)}...${address.slice(-4)}`
  }
 
@@ -54,6 +53,7 @@ const MetaMaskAuthButton = () => {
     console.log(isConnected)
     // Set the user information in the UserContext
     setUser({ id: userId })
+    console.log("user is:", user);
    } else {
     // MetaMask is not installed, handle the error or prompt the user to install it
     console.error('MetaMask is not installed.')
@@ -75,11 +75,11 @@ const MetaMaskAuthButton = () => {
   return <li className={`mx-4  cursor-pointer ${classProps}`}>{title}</li>
  }
  return (
-  <div className='border-2 border-white'>
+  <div className=''>
    {isConnected ? (
     <>
      {!toggleMenu && (
-      <div
+      <div 
        className='flex flex-row cursor:pointer'
        onClick={() => setToggleMenu(true)}
       >
@@ -103,15 +103,15 @@ const MetaMaskAuthButton = () => {
          <p className='text-white text-xl mx-8'>{sliceIt(userAddress)}</p>
          <img src={userImage} alt='' className='w-12 rounded-full' />
         </div>
-        <p onClick={disconnectFromMetaMask}>Disconnect Wallet</p>
-        <p onClick={handleViewProfile}>User Profile</p>
+        <p className="cursor-pointer" onClick={disconnectFromMetaMask}>Disconnect Wallet</p>
+        <Link to={`/profile/${user}`}><p className="cursor-pointer" >User Profile</p></Link>
        </>
       </ul>
      )}
      {menuOpen && <div className='text-white'>hidden</div>}
     </>
    ) : (
-    <button onClick={connectAndSign}>Connect</button>
+    <button onClick={connectAndSign} className='inline-flex items-center px-3 py-2 text-lg font-medium text-center text-black border-2 border-black bg-gradient-to-r  from-gray-800 to-green-200 '>Connect</button>
    )}
   </div>
  )

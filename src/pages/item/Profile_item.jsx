@@ -5,6 +5,7 @@ import { NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { ethers } from "ethers";
 import { useMoralis } from "react-moralis";
 
+
 const ProfileItem = () => {
   const { user } = useMoralis();
   const location = useLocation();
@@ -220,3 +221,72 @@ const ProfileItem = () => {
 };
 
 export default ProfileItem;
+
+
+{/* <div className="item section__padding">
+      <div className="item-image">
+        <img
+          src={nft.metadata?.image.replace(
+            "ipfs://",
+            "https://ipfs.moralis.io:2053/ipfs/"
+          )}
+          alt=""
+        />
+      </div>
+      <div className="item-content">
+        <div className="item-content-title">
+          <h1>
+            {nft.metadata?.name} #{nft.token_id}
+          </h1>
+        </div>
+        <div>
+          <div className="item-content-detail">
+            <p>{nft.metadata?.description}</p>
+          </div>
+
+          {nftClaimed ? (
+            <div className="item-content-detail">
+              <p>Owner: {user?.attributes.ethAddress}</p>
+              <p>
+                <span>
+                  {" "}
+                  Checkout your NFT on{" "}
+                  <a href="https://testnets.opensea.io/">
+                    https://testnets.opensea.io
+                  </a>{" "}
+                  (Goerli){" "}
+                </span>
+              </p>
+            </div>
+          ) : (
+            <div>
+              <div className="item-content-detail">
+                <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
+              </div>
+
+              <div className="item-content-buy">
+                {loanRepaid ? (
+                  <button className="primary-btn" onClick={() => claimNFT()}>
+                    Claim NFT
+                  </button>
+                ) : (
+                  <div className="item-content-detail">
+                    <p>Time Remaining : {timeRemaining} Days</p>
+                    <p>
+                      <span>
+                        *Note: Failure to pay full amount in the remaining time
+                        will result in default of the sale, which means you
+                        won't be able to claim your NFT.
+                      </span>
+                    </p>
+                    <button className="primary-btn" onClick={() => repay()}>
+                      Pay 0.007 ETH
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div> */}
