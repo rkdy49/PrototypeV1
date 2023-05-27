@@ -1,14 +1,13 @@
 import React from 'react'
 import './header.css'
-import banner from '../../assets/GEARFI BANNER.png'
 import Chart from '../Chart/Chart'
+import Banner from '../banner/banner'
 
 const Header = () => {
   return (
-    <div className=' flex flex-col justify-center text-white p-5 items-center'>
-      <div className='mt-20'>
-        <img src={banner} class='banner' />
-      </div>
+    <div className=' flex flex-col justify-center text-white items-center'>
+      <Banner/>
+      
       <h2 className='text-4xl my-5'>Buy Now Pay Later is here for NFTs!</h2>
       <p className='text-2xl mb-8'>Experience it seamlessly using GearFi</p>
 

@@ -12,7 +12,17 @@
   {
     "COLLECTION": "milady",
     "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
+    "oneD_CHANGE": "13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "milady",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "13.96%",
     "sevenD_CHANGE": "16.92%",
     "oneD_VOLUME": "1817.19",
     "sevenD_VOLUME": "6136.13",
@@ -32,8 +42,8 @@
   {
     "COLLECTION": "milady",
     "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
-    "sevenD_CHANGE": "16.92%",
+    "oneD_CHANGE": "13.96%",
+    "sevenD_CHANGE": "-16.92%",
     "oneD_VOLUME": "1817.19",
     "sevenD_VOLUME": "6136.13",
     "OWNERS": 3675,
@@ -52,8 +62,18 @@
   {
     "COLLECTION": "milady",
     "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
-    "sevenD_CHANGE": "16.92%",
+    "oneD_CHANGE": "-13.6%",
+    "sevenD_CHANGE": "-16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "milady",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "13.6%",
+    "sevenD_CHANGE": "-16.92%",
     "oneD_VOLUME": "1817.19",
     "sevenD_VOLUME": "6136.13",
     "OWNERS": 3675,
@@ -72,7 +92,7 @@
   {
     "COLLECTION": "milady",
     "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
+    "oneD_CHANGE": "13.96%",
     "sevenD_CHANGE": "16.92%",
     "oneD_VOLUME": "1817.19",
     "sevenD_VOLUME": "6136.13",
@@ -82,28 +102,8 @@
   {
     "COLLECTION": "milady",
     "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
-    "sevenD_CHANGE": "16.92%",
-    "oneD_VOLUME": "1817.19",
-    "sevenD_VOLUME": "6136.13",
-    "OWNERS": 3675,
-    "SUPPLY": 10000
-  },
-  {
-    "COLLECTION": "milady",
-    "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
-    "sevenD_CHANGE": "16.92%",
-    "oneD_VOLUME": "1817.19",
-    "sevenD_VOLUME": "6136.13",
-    "OWNERS": 3675,
-    "SUPPLY": 10000
-  },
-  {
-    "COLLECTION": "milady",
-    "FLOOR_PRICE": 4.56,
-    "oneD_CHANGE": "-13.96%",
-    "sevenD_CHANGE": "16.92%",
+    "oneD_CHANGE": "-1.96%",
+    "sevenD_CHANGE": "-16.92%",
     "oneD_VOLUME": "1817.19",
     "sevenD_VOLUME": "6136.13",
     "OWNERS": 3675,

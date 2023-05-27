@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './item.css'
+import LinedChart from '../../components/lineChart/LinedChart'
 
 import { NftMarketplace_address, abi_marketplace } from './../../constants'
 import { useLocation } from 'react-router'
@@ -95,7 +96,7 @@ const Item = () => {
         </div>
         <div className='item-content-buy'>
           {sale ? (
-            <Link 
+            <Link
             // to={`/profile/${user.id}`}
             >
               <button className='primary-btn'>Checkout Sale</button>
@@ -106,6 +107,7 @@ const Item = () => {
             </button>
           )}
         </div>
+        <LinedChart />
       </div>
     </div>
   )
