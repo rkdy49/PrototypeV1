@@ -64,10 +64,10 @@ const Chart = () => {
 
   return (
     <>
-      <table>
+      <table className='w-full m-4'>
         <thead>
           <tr>
-            <th className='p-2 w-1/4'>COLLECTION</th>
+            <th className='p-2'>COLLECTION</th>
             <th className='p-4'>FLOOR PRICE</th>
             <th className='p-4'>1D CHANGE</th>
             <th className='p-4'>7D CHANGE</th>

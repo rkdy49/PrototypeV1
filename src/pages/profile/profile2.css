@@ -1,0 +1,20 @@
+
+.blue-glassmorphism {
+    background: rgb(39, 51, 89, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(5px); */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+    .card{
+        background-image: url('https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256');
+    }
+
+    .white-glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
