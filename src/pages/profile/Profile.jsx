@@ -1,84 +1,84 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./profile.css";
-import { useMoralis, useMoralisQuery } from "react-moralis";
+// import { useMoralis, useMoralisQuery } from "react-moralis";
 import profile_banner from "../../assets/profile_banner.jpg";
 import profile_pic from "../../assets/images.png";
 import { nftContractAddress, abi, NftMarketplace_address, abi_marketplace } from "./../../constants";
 import { ethers } from "ethers";
 
 const Profile = () => {
-  const { user } = useMoralis();
+  // const { user } = useMoralis();
 
   //console.log("user: ", user);
 
-  const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
-    query.equalTo("userAddress", user?.id)
-  );
+  // const { data, error, isLoading } = useMoralisQuery("Sales", (query) =>
+  //   query.equalTo("userAddress", user?.id)
+  // );
 
-  function cards() {
-     return data?.map((res) => (
+  // function cards() {
+  //    return data?.map((res) => (
       
-      <div className="card-column"> 
-        <div className="bids-card">
-        <div
-          style={{
-            display: "",
-            gridTemplateColumns: "repeat(3, 4fr)",
-            gridGap: "10px",
-          }}
-        >
-          <Link
-            to={`/profileitem/${res.attributes.nft.token_address._value}${res.attributes.nft.token_id}`}
-            state={{ data: res.attributes.nft }}
-          >
-            <div className="bids-card-top">
-              {res.attributes.nft.metadata.image && (
-                <img
-                  src={res.attributes.nft.metadata.image.replace(
-                    "ipfs://",
-                    "https://ipfs.moralis.io:2053/ipfs/"
-                  )}
-                  alt=""
-                />
-              )}
+  //     <div className="card-column"> 
+  //       <div className="bids-card">
+  //       <div
+  //         style={{
+  //           display: "",
+  //           gridTemplateColumns: "repeat(3, 4fr)",
+  //           gridGap: "10px",
+  //         }}
+  //       >
+  //         <Link
+  //           to={`/profileitem/${res.attributes.nft.token_address._value}${res.attributes.nft.token_id}`}
+  //           state={{ data: res.attributes.nft }}
+  //         >
+  //           <div className="bids-card-top">
+  //             {res.attributes.nft.metadata.image && (
+  //               <img
+  //                 src={res.attributes.nft.metadata.image.replace(
+  //                   "ipfs://",
+  //                   "https://ipfs.moralis.io:2053/ipfs/"
+  //                 )}
+  //                 alt=""
+  //               />
+  //             )}
 
-              <p className="bids-title">
-                {res.attributes.nft.metadata.name} #
-                {res.attributes.nft.token_id}
-              </p>
-            </div>
-            <div className="bids-card-bottom"></div>
-          </Link>
-        </div>
-      </div>
+  //             <p className="bids-title">
+  //               {res.attributes.nft.metadata.name} #
+  //               {res.attributes.nft.token_id}
+  //             </p>
+  //           </div>
+  //           <div className="bids-card-bottom"></div>
+  //         </Link>
+  //       </div>
+  //     </div>
       
         
-      </div>
+  //     </div>
      
-    ));
-  }
+  //   ));
+  // }
 
-  async function checkOwner(token_address, token_id) {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
+  // async function checkOwner(token_address, token_id) {
+  //   if (window.ethereum) {
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     const signer = provider.getSigner();
 
-      const nftContract = new ethers.Contract(nftContractAddress, abi, signer);
-      const owner = await nftContract.ownerOf(token_id);
+  //     const nftContract = new ethers.Contract(nftContractAddress, abi, signer);
+  //     const owner = await nftContract.ownerOf(token_id);
 
-      const marketplaceContract = new ethers.Contract(NftMarketplace_address, abi_marketplace, signer);
-      const loanData = await marketplaceContract.getLoanData(token_address, token_id);
-      //console.log("owner address ", owner);
+  //     const marketplaceContract = new ethers.Contract(NftMarketplace_address, abi_marketplace, signer);
+  //     const loanData = await marketplaceContract.getLoanData(token_address, token_id);
+  //     //console.log("owner address ", owner);
 
-      if ((loanData.buyer === user?.attributes.ethAddress && loanData.state !== 3) || (owner === user?.attributes.ethAddress && loanData.state === 3)) {
+  //     if ((loanData.buyer === user?.attributes.ethAddress && loanData.state !== 3) || (owner === user?.attributes.ethAddress && loanData.state === 3)) {
       
-        return true;
+  //       return true;
       
-      } else return false;
+  //     } else return false;
 
-    } else alert("Sorry no wallet found");
-  }
+  //   } else alert("Sorry no wallet found");
+  // }
 
   return (
     <div className="profile section__padding">
@@ -88,10 +88,10 @@ const Profile = () => {
         </div>
         <div className="profile-pic">
           <img src={profile_pic} alt="profile" />
-          <h3>
+          {/* <h3>
             {user?.attributes.ethAddress.substring(0, 5)}....
             {user?.attributes.ethAddress.substring(user.attributes.ethAddress.length - 4)}
-          </h3>
+          </h3> */}
         </div>
       </div>
 
@@ -99,7 +99,7 @@ const Profile = () => {
         <div className="bids-container">
           <div className="card-wrap">
             
-            {data ? cards() : ""}
+            {/* {data ? cards() : ""} */}
           </div>
         </div>
       </div>

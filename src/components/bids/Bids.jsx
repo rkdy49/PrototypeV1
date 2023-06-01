@@ -20,7 +20,7 @@ export default function Bids() {
     }
     return (
       <div className="bids-container">
-        <div className="bids-container-text">
+        <div className="bids-container-text m-4 mt-16">
           <h1 className="font-medium text-2xl text-white">
             Discover Latest NFTs
           </h1>

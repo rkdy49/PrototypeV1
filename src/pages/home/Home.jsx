@@ -8,7 +8,7 @@ const Home = () => {
         <Navbar />
       </div>
       <Header />
-      <LinedChart />
+      {/* <LinedChart /> */}
       <Bids title='Hot Bids' />
       <Footer />
     </div>
