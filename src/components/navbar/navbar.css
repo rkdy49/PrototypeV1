@@ -116,7 +116,6 @@
   min-width: 210px;
   border-radius: 5px;
   box-shadow: 0 0 5 rgba(0,0,0,0.2);
-  z-index: 99;
 }
 .navbar-menu_container p {
   margin: 1rem 0;

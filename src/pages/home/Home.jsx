@@ -1,17 +1,17 @@
 import React from 'react'
-import { Bids, Footer, Header, Navbar, PopularCollections } from '../../components'
+import { Bids, Footer, Header, PopularCollections } from '../../components'
 import Profile2 from '../profile/Profile2'
+import './home.css'
+import Collection from '../collection/Collection'
 const Home = () => {
   return (
     <div>
-      {/* <div className='fixed top-0 left-0 right-0'>
-        <Navbar />
-      </div>
       <Header />
-      <Bids title='Hot Bids' /> */}
+      {/* <Collection/> */}
+      <Bids title='Hot Bids' />
       <Profile2 />
-      {/* <PopularCollections/>
-                <Footer /> */}
+      <PopularCollections/>
+      <Footer />
     </div>
   )
 }
