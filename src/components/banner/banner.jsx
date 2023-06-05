@@ -18,7 +18,7 @@ export default function Banner() {
   // }
 
   return (
-    <div className='mt-20 w-full text-md md:text-lg banner'>
+    <div className='w-full text-md md:text-lg banner'>
       {/* <img src={banner2} className='w-full min-w-fit' /> */}
       <div className='bottom-0 left-0  flex flex-col font-bold w-full'>
         <div className='mb-2 ml-4'>Kanpai Pandas</div>

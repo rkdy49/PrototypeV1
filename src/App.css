@@ -85,3 +85,11 @@ button{
    margin:4rem 2rem;
   }
 }
+
+.navbar{
+  position: absolute;
+  z-index: 50;
+}
+.card{
+  background-image: url('https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256');
+}

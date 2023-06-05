@@ -102,12 +102,10 @@ const nfts = [
     price: 2.59,
     lastSale: 2.96,
   },
-  
 ]
 
 export default function Profile2() {
   const [collections, setCollections] = React.useState(true)
-
   return (
     <div className='text-white'>
       <div className='flex flex-col items-center'>
@@ -154,12 +152,12 @@ export default function Profile2() {
         </div>
       )}
       {!collections && (
-        <div className='grid grid-cols-5'>
+        <div className='grid grid-cols-5 m-2'>
         {nfts.map((nft) => {
           return (
-            <div className='flex flex-col m-2 w-64 mt-0 h-72 border-2 border-sky-200 blue-glassmorphism'>
+            <div className='flex flex-col m-2 mt-8 w-56 h-72 border-2 border-indigo-300'>
                 <img src={nft.url} alt="" className='w-64 h-48'/>
-              <div className='flex flex-col m-4 mt-0 p-4'>
+              <div className='flex flex-col mt-0 p-4'>
                 <div className='font-bold mb-2 flex items-center justify-between'>
                   <div>nft:{nft.name}</div>
                   <div>
