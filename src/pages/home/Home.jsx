@@ -1,6 +1,6 @@
 import React from 'react'
-import { Bids, Footer, Header, Navbar } from '../../components'
-import LinedChart from '../../components/lineChart/LinedChart'
+import { Bids, Footer, Header, Navbar, PopularCollections } from '../../components'
+import Profile2 from '../profile/Profile2'
 const Home = () => {
   return (
     <div>
@@ -8,9 +8,10 @@ const Home = () => {
         <Navbar />
       </div>
       <Header />
-      {/* <LinedChart /> */}
       <Bids title='Hot Bids' />
-      <Footer />
+      <Profile2 />
+      <PopularCollections/>
+                <Footer />
     </div>
   )
 }

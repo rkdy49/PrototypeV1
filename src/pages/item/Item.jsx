@@ -17,7 +17,7 @@ const Item = () => {
   const [sale, setSale] = useState()
 
   // async function storeInitializedSale() {
-  //   // const InitializedSale = Moralis.Object.extend("Sales");
+  //   const InitializedSale = Moralis.Object.extend("Sales");
 
   //   const initializedSale = new InitializedSale();
 
