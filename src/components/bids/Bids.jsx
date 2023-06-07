@@ -33,7 +33,7 @@ export default function Bids() {
                 to={`/nft/${nft.token_address._value}${nft.token_id}`}
                 state={{ data: nft }}
                 className="block"
-              >
+              > 
                 <div className="bids-card bg-gray-800 rounded-lg p-4">
                   <div className="bids-card-top">
                     {nft.metadata?.image && (
