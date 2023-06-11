@@ -18,10 +18,10 @@ export default function Banner() {
   // }
 
   return (
-    <div className='w-full text-md md:text-lg banner'>
+    <div className=' w-full text-md md:text-lg banner'>
       {/* <img src={banner2} className='w-full min-w-fit' /> */}
-      <div className='bottom-0 left-0  flex flex-col font-bold w-full'>
-        <div className='mb-2 ml-4'>Kanpai Pandas</div>
+      <div className='bottom-0 left-0  flex flex-col font-bold w-full mt-10'>
+        <div className='mb-2 ml-4 mt-10'>Kanpai Pandas</div>
         <div className='mb-2 ml-4 '>By Kanpai Pandas</div>
         <div className='ml-4 flex flex-row mb-2'>
           <div className='mr-4'>
@@ -41,7 +41,7 @@ export default function Banner() {
             <div className=''>
               <img
                 src={nft_2}
-                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mb-4'
+                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mt-4'
               />
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function Banner() {
             <div className='aspect-w-1 aspect-h-1'>
               <img
                 src={nft_2}
-                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mb-4'
+                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mt-4'
               />
             </div>
           </div>
@@ -57,15 +57,15 @@ export default function Banner() {
             <div className='aspect-w-1 aspect-h-1'>
               <img
                 src={nft_2}
-                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mb-4'
+                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mt-4 rounded-2xl'
               />
             </div>
           </div>
-          <div className='flex-shrink-0 w-1/4'>
-            <div className='aspect-w-1 aspect-h-1'>
+          <div className='flex-shrink-0 w-1/4 rounded-3xl'>
+            <div className='aspect-w-1 aspect-h-1 rounded-3xl'>
               <img
                 src={nft_2}
-                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mb-4'
+                className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mt-4 '
               />
             </div>
           </div>

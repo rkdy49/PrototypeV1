@@ -1,6 +1,6 @@
 import React from 'react'
 import './header.css'
-import Chart from '../Chart/Chart'
+
 import Banner from '../banner/banner'
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
           </button>
         </a>
       </div>
-      <Chart />
+     
     </div>
   )
 }

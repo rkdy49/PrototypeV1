@@ -31,25 +31,7 @@ const popColl = [
     name: 'cloneX #82932',
     price: 2.59,
     lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
+  }
 ]
 
 export default function PopularCollections() {
