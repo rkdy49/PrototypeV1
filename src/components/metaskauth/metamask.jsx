@@ -38,7 +38,8 @@ const MetaMaskAuthButton = () => {
         // Get the connected user's address
         const address = window.ethereum.selectedAddress
         setUserId(address)
-        console.log('ethereum address', address)
+        //console.log('ethereum address', address)
+
         // Generate a random message to sign
         const message = 'This is a sample message.'
         // Request user's permission to sign the message
@@ -48,14 +49,16 @@ const MetaMaskAuthButton = () => {
         })
         // Set the signature in the state
         setSignature(signedMessage)
-        console.log('signature', signature)
+        //console.log('signature', signature)
 
         setIsConnected(true)
         localStorage.setItem('isWalletConnected', true)
-        console.log(isConnected)
+        //console.log(isConnected)
+
         // Set the user information in the UserContext
         setUser({ id: userId })
         console.log('user is:', user)
+
       } else {
         // MetaMask is not installed, handle the error or prompt the user to install it
         console.error('MetaMask is not installed.')
@@ -124,9 +127,3 @@ const MetaMaskAuthButton = () => {
 
 export default MetaMaskAuthButton
 
-{
-  /* <p className="my-auto mx-4 text-white font-medium text-3xl list-none capitalize mr-1 cursor-pointer">
-  my profile
-        <button onClick={disconnectFromMetaMask}>Disconnect</button>
-      </p> */
-}

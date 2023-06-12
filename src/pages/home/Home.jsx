@@ -7,13 +7,14 @@ import IPFSImage from '../../components/imageComponent/image'
 const Home = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
+      <Chart />
       {/* <Collection/> */}
-      {/* <Bids title='Hot Bids' />
-      <Profile2 />
+      {/* <Bids title='Hot Bids' /> */}
+      {/* <Profile2 /> */}
       <PopularCollections/>
-      <Footer /> */}
-      <IPFSImage ipfsUrl='ipfs://QmPjbncwNmYieMBP6yo76ggxDyEL85v8NmNmYrRzSnvMqS/la8Ne7MoZ7rIQbjG/2709.png'/>
+      <Footer />
+      {/* <IPFSImage ipfsUrl='ipfs://QmPjbncwNmYieMBP6yo76ggxDyEL85v8NmNmYrRzSnvMqS/la8Ne7MoZ7rIQbjG/2709.png'/> */}
     </div>
   )
 }

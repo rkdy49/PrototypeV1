@@ -1,8 +1,10 @@
-import React from 'react'
+import {React, useContext} from 'react'
 import Banner from '../../components/banner/banner'
 import nft_5 from '../../assets/nft_5.avif'
 import bannerImg from '../../assets/banner2.avif'
 import { AiOutlineArrowRight } from "react-icons/ai";
+
+import { UserContext } from '../../components/UserContext/UserContext';
 
 const nfts = [
   {
@@ -55,6 +57,8 @@ const nfts = [
   },
 ]
 export default function Collection() {
+  const { user, setUser } = useContext(UserContext)
+  console.log(window.ethereum.selectedAddress)
   return (
     <div className='text-white'>
       <div className='relative'>

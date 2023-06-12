@@ -26,15 +26,25 @@ const Navbar = () => {
             </div>
           </Link>
         </div>
-        <div className='flex items-center ml-4'>
+        <div className='flex items-center ml-4 text-lg '>
           <a href='https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract'>
-            <li className='text-white mx-4 text-xl list-none capitalize mr-1 cursor-pointer'>
+            <li className='text-white mx-4  list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
               Docs
             </li>
           </a>
           <a href='https://discord.com/invite/PJp2DbX64U'>
-            <li className='text-white mx-4 list-none text-xl capitalize mr-1 cursor-pointer'>
+            <li className='text-white mx-4 list-none  capitalize mr-1 cursor-pointer  hover:text-gray-400'>
               Discord
+            </li>
+          </a>
+          <a href='https://discord.com/invite/PJp2DbX64U'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+              Discover
+            </li>
+          </a>
+          <a href='https://discord.com/invite/PJp2DbX64U'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+              BNPL
             </li>
           </a>
         </div>
