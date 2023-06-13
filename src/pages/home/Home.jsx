@@ -4,13 +4,16 @@ import Profile2 from '../profile/Profile2'
 import './home.css'
 import Collection from '../collection/Collection'
 import IPFSImage from '../../components/imageComponent/image'
+import Staking from '../../components/staking/Staking'
+import ComingSoon from '../../components/comingSoon/comingSoon'
 const Home = () => {
   return (
     <div>
-      <Header />
-      <Chart />
+      <Header/>
       {/* <Collection/> */}
-      {/* <Bids title='Hot Bids' /> */}
+      <Staking/>
+      <ComingSoon/>
+      <Bids title='Hot Bids' />
       {/* <Profile2 /> */}
       <PopularCollections/>
       <Footer />

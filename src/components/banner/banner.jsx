@@ -10,7 +10,7 @@ import './banner.css'
 
 export default function Banner() {
   // const [mouseHover, setMouseHover] = useState('')
-
+  
   // const showImage = (img) => {
   //     return(
   //         <img src={img} onMouseEnter={setMouseHover(true)} onMouseLeave={} />
@@ -18,9 +18,8 @@ export default function Banner() {
   // }
 
   return (
-    <div className=' w-full text-md md:text-lg banner'>
-      {/* <img src={banner2} className='w-full min-w-fit' /> */}
-      <div className='bottom-0 left-0  flex flex-col font-bold w-full mt-10'>
+    <div className='w-fulltext-md md:text-lg banner mt-8'>
+      <div className='bottom-0 left-0  flex flex-col font-bold w-full'>
         <div className='mb-2 ml-4 mt-10'>Kanpai Pandas</div>
         <div className='mb-2 ml-4 '>By Kanpai Pandas</div>
         <div className='ml-4 flex flex-row mb-2'>
