@@ -23,7 +23,7 @@ const UserData = ({ users }) => {
         return (
           <tr key={curUser.address} className="hover:bg-gray-800 text-center">
             <td className="p-2 ">
-              <Link to={`/collection/${curUser.address}`} className="flex space-x-2">
+              <Link to={`/collection/${curUser.address}`} state={{data: curUser.address}} className="flex space-x-2">
                 <img src={nft} className="w-8 rounded-full" alt="NFT" />
                 <span>{COLLECTION}</span>
               </Link>

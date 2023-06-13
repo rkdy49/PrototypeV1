@@ -14,7 +14,7 @@ function App() {
         <Route path=':item/:id' element={<Item />} />
         <Route path='/profile/:id' element={<Profile />} />
         <Route path='profileitem/:id' element={<Profile_item />} />
-        <Route path = 'collection/:id' element={<Collection/>} />
+        <Route path = 'collection/:collAddress' element={<Collection/>} />
       </Routes>
     </div>
   )
