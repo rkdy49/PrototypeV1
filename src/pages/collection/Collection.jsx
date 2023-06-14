@@ -5,7 +5,7 @@ import bannerImg from '../../assets/banner2.avif'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import axios from 'axios'
 import { useParams } from 'react-router'
-
+import data from "./data.json";
 import { UserContext } from '../../components/UserContext/UserContext'
 
 const nfts = [
@@ -82,6 +82,8 @@ export default function Collection() {
     )
   }, [])
 
+  const res = data.find((entry) => entry.address === collAddress);
+  console.log(res)
   return (
     <div className='text-white'>
       <div className='relative'>
