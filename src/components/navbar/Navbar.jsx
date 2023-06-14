@@ -44,6 +44,10 @@ const Navbar = () => {
           </a>
           <a href='https://discord.com/invite/PJp2DbX64U'>
             <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+              Stake
+            </li>
+          </a><a href='https://discord.com/invite/PJp2DbX64U'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
               BNPL
             </li>
           </a>

@@ -39,7 +39,7 @@ export default function Banner() {
           <div className='flex-shrink-0 w-1/4'>
             <div className=''>
               <img
-                src={nft_2}
+                src={"https://i.seadn.io/gae/5c-HcdLMinTg3LvEwXYZYC-u5nN22Pn5ivTPYA4pVEsWJHU1rCobhUlHSFjZgCHPGSmcGMQGCrDCQU8BfSfygmL7Uol9MRQZt6-gqA?auto=format&dpr=1&w=1200"}
                 className='hover:scale-105 w-full px-8 transform origin-center transition-transform duration-300 object-contain mt-4'
               />
             </div>
