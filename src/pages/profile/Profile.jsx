@@ -2,65 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './profile.css'
 // import { useMoralis, useMoralisQuery } from "react-moralis";
-import profile_banner from '../../assets/profile_banner.jpg'
-import profile_pic from '../../assets/images.png'
 import userProfile from '../../assets/userProfile.jpg'
 // import { nftContractAddress, abi, NftMarketplace_address, abi_marketplace } from "./../../constants";
 // import { ethers } from "ethers";
 
 /***************************************************************** */
 import { AiOutlineArrowRight } from "react-icons/ai";
-
-const coll = [
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-  {
-    url: 'https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256',
-    name: 'cloneX #82932',
-    price: 2.59,
-    lastSale: 2.96,
-  },
-]
 const nfts = [
   {
     url: 'https://images.blur.io/_blur-prod/0xacf63e56fd08970b43401492a02f6f38b6635c91/5147-edbab12fa8ac49f5?w=256',
@@ -185,7 +132,7 @@ const Profile = () => {
   //   } else alert("Sorry no wallet found");
   // }
 
-  const [collections, setCollections] = React.useState(true)
+  const [listings, setListings] = React.useState(true)
   return (
     <div className='text-white mt-20'>
       <div className='flex flex-col items-center'>
@@ -194,44 +141,45 @@ const Profile = () => {
         <div className=''>Joined 11/11/12 address: 2e4c...a7df</div>
       </div>
       <div className='flex justify-start'>
-        <div className={`cursor-pointer m-4 mr-8 text-3xl font-semibold ${collections? 'text-red-600' : ''}`} onClick={() => setCollections(true)}>
-          My Collections
+        <div className={`cursor-pointer m-4 mr-8 text-3xl font-semibold ${listings? 'text-red-600' : ''}`} onClick={() => setListings(true)}>
+          My Listings
         </div>
-        <div className={`cursor-pointer m-4 mr-8 text-3xl font-semibold ${!collections? 'text-red-600' : ''}`} onClick={() => setCollections(false)}>
+        <div className={`cursor-pointer m-4 mr-8 text-3xl font-semibold ${!listings? 'text-red-600' : ''}`} onClick={() => setListings(false)}>
           NFTs
         </div>
       </div>
-      {collections && (
-        <div className='grid grid-cols-4 overflow-x-scroll'>
-          {coll.map((coll) => {
-            return (
-              <div className='flex m-2 w-64 h-72 collCard items-end'>
-                <div className='flex flex-col m-4 blue-glassmorphism p-4'>
-                  <div className='font-bold mb-2 flex items-center justify-between'>
-                    <div>{coll.name}</div>
-                    <div>
-                      <AiOutlineArrowRight className='mr-4' />
-                    </div>
+      {listings && (
+        <div className='grid grid-cols-5 m-2'>
+        {nfts.map((nft) => {
+          return (
+            <div className='flex flex-col m-2 mt-8 w-56 h-72 border-2 border-indigo-300'>
+                <img src={nft.url} alt="" className='w-64 h-48'/>
+              <div className='flex flex-col mt-0 p-4'>
+                <div className='font-bold mb-2 flex items-center justify-between'>
+                  <div>nft:{nft.name}</div>
+                  <div>
+                    <AiOutlineArrowRight className='mr-4' />
                   </div>
-                  <div className='flex'>
-                    <div className='w-24 text-sm'>
-                      FLOOR PRICE:
-                      <br />
-                      {coll.price}
-                    </div>
-                    <div className='ml-4 w-20 text-sm'>
-                      LAST SALE:
-                      <br />
-                      {coll.lastSale}
-                    </div>
+                </div>
+                <div className='flex'>
+                  <div className='w-24 text-sm'>
+                    FLOOR PRICE:
+                    <br />
+                    {nft.price}
+                  </div>
+                  <div className='ml-4 w-20 text-sm'>
+                    LAST SALE:
+                    <br />
+                    {nft.lastSale}
                   </div>
                 </div>
               </div>
-            )
-          })}
-        </div>
+            </div>
+          )
+        })}
+      </div>
       )}
-      {!collections && (
+      {!listings && (
         <div className='grid grid-cols-5 m-2'>
         {nfts.map((nft) => {
           return (

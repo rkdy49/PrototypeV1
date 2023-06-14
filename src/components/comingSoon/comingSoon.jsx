@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ComingSoon() {
   return (
-    <div className='m-10 p-8 flex items-center justify-center text-white w-full relative border-t'>
+    <div className='p-8 flex items-center justify-center text-white w-full relative border-t'>
       <div className='rounded-lg shadow-md'>
         <div className='text-white '>
           <div className='flex flex-col items-center justify-center'>

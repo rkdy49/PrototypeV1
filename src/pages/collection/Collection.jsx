@@ -5,7 +5,8 @@ import bannerImg from '../../assets/banner2.avif'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import axios from 'axios'
 import { useParams } from 'react-router'
-import data from "./data.json";
+import data from '../../assets/data.json'
+
 import { UserContext } from '../../components/UserContext/UserContext'
 
 const nfts = [
@@ -82,14 +83,18 @@ export default function Collection() {
     )
   }, [])
 
-  const res = data.find((entry) => entry.address === collAddress);
-  console.log(res)
+  // data.map(coll => {
+  //   console.log("coll is", coll)
+  // })
+  const response = data.find((entry) => entry.address===collAddress)
+
+  console.log(response)
   return (
     <div className='text-white'>
       <div className='relative'>
-        <img src={bannerImg} alt='' className='relative top-0 left-0 w-full' />
+        <img src={response.bannerImg} alt='' className='banner_img relative top-0 left-0 w-full' />
         <img
-          src={nft_5}
+          src={response.img}
           className='b-4 absolute -bottom-4 left-20 border-4 w-20 sm:w-24 md:w-32 lg:w-40 border-white rounded-lg '
         />
       </div>
