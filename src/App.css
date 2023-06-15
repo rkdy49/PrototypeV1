@@ -1,5 +1,5 @@
 body{
-  background: var(--color-bg);
+  background: #000000;
   scroll-behavior: smooth;
 }
 a{
@@ -84,4 +84,23 @@ button{
   .section__margin{
    margin:4rem 2rem;
   }
+}
+
+.navbar{
+  position: absolute;
+  z-index: 50;
+}
+.card{
+  background-image: url('https://images.blur.io/_blur-prod/0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b/3827-5b8259cffe123512?w=256');
+}
+.banner_img{
+  height: 400px;
+}
+.button {
+  display: inline-block;
+  padding: 0.5rem;
+  border-width: 2px;
+  border-color: black;
+  background-image: linear-gradient(to right, gray(800), green(200));
+  margin: 1rem;
 }

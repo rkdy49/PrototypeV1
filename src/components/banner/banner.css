@@ -1,0 +1,7 @@
+.banner {
+    background-image: url("https://i.seadn.io/gcs/files/f0d3006fb5a1f09d1619a024762f5aee.png?auto=format&dpr=1&w=1920");
+    background-position: center;
+    height: 60vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

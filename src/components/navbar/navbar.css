@@ -4,6 +4,9 @@
   align-items: center;
   padding: 2rem 6rem;
   border-bottom: 1px solid rgba(165, 165, 165, 0.1);
+  top: 0;
+  position: fixed;
+  z-index: 9999;
 }
 .navbar-links{
   flex: 1;
@@ -116,7 +119,6 @@
   min-width: 210px;
   border-radius: 5px;
   box-shadow: 0 0 5 rgba(0,0,0,0.2);
-  z-index: 99;
 }
 .navbar-menu_container p {
   margin: 1rem 0;

@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--color-footer);
-  border-top: 1px solid rgba(165, 165, 165, 0.1);
+  background: #000000;
+ 
   padding-bottom: 2rem;
 }
 

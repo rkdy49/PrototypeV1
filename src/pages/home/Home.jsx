@@ -1,15 +1,20 @@
-import React from 'react';
-import {Bids, Footer, Header } from '../../components'
-import Chart from '../../components/Chart/Chart';
-
+import React from 'react'
+import {Footer, Header, PopularCollections, Chart } from '../../components'
+import './home.css'
+import Staking from '../../components/staking/Staking'
+import ComingSoon from '../../components/comingSoon/comingSoon'
 const Home = () => {
+  return (
+    <div>
+      <Header/>
+      <Staking/>
+      <Chart/>
+      <PopularCollections/>
+      <ComingSoon/>
+      <Footer />
 
-  return <div>
-   <Header />
-   <Bids title="Hot Bids"  />
-   <Chart/>
-   <Footer />
-  </div>;
-};
+    </div>
+  )
+}
 
-export default Home;
+export default Home

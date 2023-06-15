@@ -1,0 +1,70 @@
+[
+  {
+    "COLLECTION": "BAYC",
+    "address" : "7436",
+    "img" : "https://ik.imagekit.io/bayc/assets/bayc-footer.png",
+    "bannerImg": "https://i.seadn.io/gae/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs?auto=format&dpr=1&w=1920",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "-13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "DeGods",
+    "img" : "https://i.seadn.io/gcs/files/c6cb0b1d6f2ab61c0efacf00e62e2230.jpg?auto=format&dpr=1&w=1200",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "Azuki",
+    "img" : "https://i.seadn.io/gae/H8jOCJuQokNqGBpkBN5wk1oZwO7LM8bNnrHCaekV2nKjnCqw6UB5oaH8XyNeBDj6bA_n1mjejzhFQUP3O1NfjFLHr3FOaeHcTOOT?auto=format&dpr=1&w=256",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "Otherdeeds for Otherside",
+    "img" : "https://i.seadn.io/gae/yIm-M5-BpSDdTEIJRt5D6xphizhIdozXjqSITgK4phWq7MmAU3qE7Nw7POGCiPGyhtJ3ZFP8iJ29TFl-RLcGBWX5qI4-ZcnCPcsY4zI?auto=format&dpr=1&w=256",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "-13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "Milady Maker",
+    "img" : "https://i.seadn.io/gae/a_frplnavZA9g4vN3SexO5rrtaBX_cBTaJYcgrPtwQIqPhzgzUendQxiwUdr51CGPE2QyPEa1DHnkW1wLrHAv5DgfC3BP-CWpFq6BA?auto=format&dpr=1&w=256",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "13.96%",
+    "sevenD_CHANGE": "-16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  },
+  {
+    "COLLECTION": "MAYC",
+    "img" : "https://i.seadn.io/gae/lHexKRMpw-aoSyB1WdFBff5yfANLReFxHzt1DOj_sg7mS14yARpuvYcUtsyyx-Nkpk6WTcUPFoG53VnLJezYi8hAs0OxNZwlw6Y-dmI?auto=format&dpr=1&w=256",
+    "FLOOR_PRICE": 4.56,
+    "oneD_CHANGE": "-13.96%",
+    "sevenD_CHANGE": "16.92%",
+    "oneD_VOLUME": "1817.19",
+    "sevenD_VOLUME": "6136.13",
+    "OWNERS": 3675,
+    "SUPPLY": 10000
+  }
+]
