@@ -4,7 +4,7 @@ import LinedChart from '../../components/lineChart/LinedChart'
 
 import { NftMarketplace_address, abi_marketplace } from './../../constants'
 import { useLocation } from 'react-router'
-// import { useMoralis } from "react-moralis";
+
 import { ethers } from 'ethers'
 import { Link } from 'react-router-dom'
 

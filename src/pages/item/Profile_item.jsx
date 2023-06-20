@@ -1,292 +1,292 @@
-import { React, useEffect, useState } from "react";
-import "./item.css";
-import { useLocation } from "react-router";
-import { NftMarketplace_address, abi_marketplace } from "./../../constants";
-import { ethers } from "ethers";
-import { useMoralis } from "react-moralis";
+// import { React, useEffect, useState } from "react";
+// import "./item.css";
+// import { useLocation } from "react-router";
+// import { NftMarketplace_address, abi_marketplace } from "./../../constants";
+// import { ethers } from "ethers";
 
 
-const ProfileItem = () => {
-  const { user } = useMoralis();
-  const location = useLocation();
-  const nft = location.state?.data;
-  //console.log(nft);
 
-  const [loanRepaid, setLoanRepaid] = useState();
-  const [nftClaimed, setNftClaimed] = useState();
-  const [timeRemaining, setTimeRemaining] = useState();
+// const ProfileItem = () => {
 
-  useEffect(() => {
-    isLoanRepaid().then((res) => setLoanRepaid(res));
-    isNFTClaimed().then((res) => setNftClaimed(res));
-    getTimeRemaining().then((res) => setTimeRemaining(res));
-  }, [loanRepaid, nftClaimed]);
+//   const location = useLocation();
+//   const nft = location.state?.data;
+//   //console.log(nft);
 
-  async function getTimeRemaining() {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+//   const [loanRepaid, setLoanRepaid] = useState();
+//   const [nftClaimed, setNftClaimed] = useState();
+//   const [timeRemaining, setTimeRemaining] = useState();
 
-      const signer = provider.getSigner();
+//   useEffect(() => {
+//     isLoanRepaid().then((res) => setLoanRepaid(res));
+//     isNFTClaimed().then((res) => setNftClaimed(res));
+//     getTimeRemaining().then((res) => setTimeRemaining(res));
+//   }, [loanRepaid, nftClaimed]);
 
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
+//   async function getTimeRemaining() {
+//     if (window.ethereum) {
+//       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-      const response = await marketplaceContract.getTimeRemaining(
-        nft.token_address._value,
-        nft.token_id
-      );
+//       const signer = provider.getSigner();
 
-      console.log(response.toString() / 86400);
-      return response.toString() / 86400;
-    } else alert("Sorry no wallet found");
-  }
+//       const marketplaceContract = new ethers.Contract(
+//         NftMarketplace_address,
+//         abi_marketplace,
+//         signer
+//       );
 
-  async function repay() {
-    const accounts = await window.ethereum.request({ method: "eth_accounts" });
-    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+//       const response = await marketplaceContract.getTimeRemaining(
+//         nft.token_address._value,
+//         nft.token_id
+//       );
 
-    if (accounts.length === 0) {
-      alert("Please connect Wallet");
-      return;
-    }
+//       console.log(response.toString() / 86400);
+//       return response.toString() / 86400;
+//     } else alert("Sorry no wallet found");
+//   }
 
-    if (chainId !== "0x5") {
-      alert("Please switch to Goerli Testnet");
-      return;
-    }
+//   async function repay() {
+//     const accounts = await window.ethereum.request({ method: "eth_accounts" });
+//     const chainId = await window.ethereum.request({ method: "eth_chainId" });
 
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+//     if (accounts.length === 0) {
+//       alert("Please connect Wallet");
+//       return;
+//     }
 
-      const signer = provider.getSigner();
+//     if (chainId !== "0x5") {
+//       alert("Please switch to Goerli Testnet");
+//       return;
+//     }
 
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
+//     if (window.ethereum) {
+//       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-      const response = await marketplaceContract.repayLoan(
-        nft.token_address._value,
-        nft.token_id,
-        {
-          value: ethers.utils.parseEther("0.007"),
-        }
-      );
+//       const signer = provider.getSigner();
 
-      console.log(response);
-    } else alert("Sorry no wallet found");
-  }
+//       const marketplaceContract = new ethers.Contract(
+//         NftMarketplace_address,
+//         abi_marketplace,
+//         signer
+//       );
 
-  async function isLoanRepaid() {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+//       const response = await marketplaceContract.repayLoan(
+//         nft.token_address._value,
+//         nft.token_id,
+//         {
+//           value: ethers.utils.parseEther("0.007"),
+//         }
+//       );
 
-      const signer = provider.getSigner();
+//       console.log(response);
+//     } else alert("Sorry no wallet found");
+//   }
 
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
+//   async function isLoanRepaid() {
+//     if (window.ethereum) {
+//       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-      const response = await marketplaceContract.getLoanData(
-        nft.token_address._value,
-        nft.token_id
-      );
+//       const signer = provider.getSigner();
 
-      if (response.state === 2) {
-        console.log("Loan state (Repaid)", response.state);
-        return true;
-      } else return false;
-    } else alert("Sorry no wallet found");
-  }
+//       const marketplaceContract = new ethers.Contract(
+//         NftMarketplace_address,
+//         abi_marketplace,
+//         signer
+//       );
 
-  async function claimNFT() {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+//       const response = await marketplaceContract.getLoanData(
+//         nft.token_address._value,
+//         nft.token_id
+//       );
 
-      const signer = provider.getSigner();
+//       if (response.state === 2) {
+//         console.log("Loan state (Repaid)", response.state);
+//         return true;
+//       } else return false;
+//     } else alert("Sorry no wallet found");
+//   }
 
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
+//   async function claimNFT() {
+//     if (window.ethereum) {
+//       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-      const response = await marketplaceContract
-        .claimNFTbyBuyer(nft.token_address._value, nft.token_id)
-        .then(() => {
-          console.log(response);
-        });
-    } else alert("Sorry no wallet found");
-  }
+//       const signer = provider.getSigner();
 
-  async function isNFTClaimed() {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+//       const marketplaceContract = new ethers.Contract(
+//         NftMarketplace_address,
+//         abi_marketplace,
+//         signer
+//       );
 
-      const signer = provider.getSigner();
+//       const response = await marketplaceContract
+//         .claimNFTbyBuyer(nft.token_address._value, nft.token_id)
+//         .then(() => {
+//           console.log(response);
+//         });
+//     } else alert("Sorry no wallet found");
+//   }
 
-      const marketplaceContract = new ethers.Contract(
-        NftMarketplace_address,
-        abi_marketplace,
-        signer
-      );
+//   async function isNFTClaimed() {
+//     if (window.ethereum) {
+//       const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-      const response = await marketplaceContract.getLoanData(
-        nft.token_address._value,
-        nft.token_id
-      );
+//       const signer = provider.getSigner();
 
-      if (response.state === 3) {
-        console.log("Loan state (claimed)", response.state);
-        return true;
-      } else return false;
-    } else alert("Sorry no wallet found");
-  }
+//       const marketplaceContract = new ethers.Contract(
+//         NftMarketplace_address,
+//         abi_marketplace,
+//         signer
+//       );
 
-  return (
-    <div className="item section__padding">
-      <div className="item-image">
-        <img
-          src={nft.metadata?.image.replace(
-            "ipfs://",
-            "https://ipfs.moralis.io:2053/ipfs/"
-          )}
-          alt=""
-        />
-      </div>
-      <div className="item-content">
-        <div className="item-content-title">
-          <h1>
-            {nft.metadata?.name} #{nft.token_id}
-          </h1>
-        </div>
-        <div>
-          <div className="item-content-detail">
-            <p>{nft.metadata?.description}</p>
-          </div>
+//       const response = await marketplaceContract.getLoanData(
+//         nft.token_address._value,
+//         nft.token_id
+//       );
 
-          {nftClaimed ? (
-            <div className="item-content-detail">
-              <p>Owner: {user?.attributes.ethAddress}</p>
-              <p>
-                <span>
-                  {" "}
-                  Checkout your NFT on{" "}
-                  <a href="https://testnets.opensea.io/">
-                    https://testnets.opensea.io
-                  </a>{" "}
-                  (Goerli){" "}
-                </span>
-              </p>
-            </div>
-          ) : (
-            <div>
-              <div className="item-content-detail">
-                <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
-              </div>
+//       if (response.state === 3) {
+//         console.log("Loan state (claimed)", response.state);
+//         return true;
+//       } else return false;
+//     } else alert("Sorry no wallet found");
+//   }
 
-              <div className="item-content-buy">
-                {loanRepaid ? (
-                  <button className="primary-btn" onClick={() => claimNFT()}>
-                    Claim NFT
-                  </button>
-                ) : (
-                  <div className="item-content-detail">
-                    <p>Time Remaining : {timeRemaining} Days</p>
-                    <p>
-                      <span>
-                        *Note: Failure to pay full amount in the remaining time
-                        will result in default of the sale, which means you
-                        won't be able to claim your NFT.
-                      </span>
-                    </p>
-                    <button className="primary-btn" onClick={() => repay()}>
-                      Pay 0.007 ETH
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="item section__padding">
+//       <div className="item-image">
+//         <img
+//           src={nft.metadata?.image.replace(
+//             "ipfs://",
+//             "https://ipfs.moralis.io:2053/ipfs/"
+//           )}
+//           alt=""
+//         />
+//       </div>
+//       <div className="item-content">
+//         <div className="item-content-title">
+//           <h1>
+//             {nft.metadata?.name} #{nft.token_id}
+//           </h1>
+//         </div>
+//         <div>
+//           <div className="item-content-detail">
+//             <p>{nft.metadata?.description}</p>
+//           </div>
 
-export default ProfileItem;
+//           {nftClaimed ? (
+//             <div className="item-content-detail">
+//               <p>Owner: {user?.attributes.ethAddress}</p>
+//               <p>
+//                 <span>
+//                   {" "}
+//                   Checkout your NFT on{" "}
+//                   <a href="https://testnets.opensea.io/">
+//                     https://testnets.opensea.io
+//                   </a>{" "}
+//                   (Goerli){" "}
+//                 </span>
+//               </p>
+//             </div>
+//           ) : (
+//             <div>
+//               <div className="item-content-detail">
+//                 <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
+//               </div>
+
+//               <div className="item-content-buy">
+//                 {loanRepaid ? (
+//                   <button className="primary-btn" onClick={() => claimNFT()}>
+//                     Claim NFT
+//                   </button>
+//                 ) : (
+//                   <div className="item-content-detail">
+//                     <p>Time Remaining : {timeRemaining} Days</p>
+//                     <p>
+//                       <span>
+//                         *Note: Failure to pay full amount in the remaining time
+//                         will result in default of the sale, which means you
+//                         won't be able to claim your NFT.
+//                       </span>
+//                     </p>
+//                     <button className="primary-btn" onClick={() => repay()}>
+//                       Pay 0.007 ETH
+//                     </button>
+//                   </div>
+//                 )}
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProfileItem;
 
 
-{/* <div className="item section__padding">
-      <div className="item-image">
-        <img
-          src={nft.metadata?.image.replace(
-            "ipfs://",
-            "https://ipfs.moralis.io:2053/ipfs/"
-          )}
-          alt=""
-        />
-      </div>
-      <div className="item-content">
-        <div className="item-content-title">
-          <h1>
-            {nft.metadata?.name} #{nft.token_id}
-          </h1>
-        </div>
-        <div>
-          <div className="item-content-detail">
-            <p>{nft.metadata?.description}</p>
-          </div>
+// {/* <div className="item section__padding">
+//       <div className="item-image">
+//         <img
+//           src={nft.metadata?.image.replace(
+//             "ipfs://",
+//             "https://ipfs.moralis.io:2053/ipfs/"
+//           )}
+//           alt=""
+//         />
+//       </div>
+//       <div className="item-content">
+//         <div className="item-content-title">
+//           <h1>
+//             {nft.metadata?.name} #{nft.token_id}
+//           </h1>
+//         </div>
+//         <div>
+//           <div className="item-content-detail">
+//             <p>{nft.metadata?.description}</p>
+//           </div>
 
-          {nftClaimed ? (
-            <div className="item-content-detail">
-              <p>Owner: {user?.attributes.ethAddress}</p>
-              <p>
-                <span>
-                  {" "}
-                  Checkout your NFT on{" "}
-                  <a href="https://testnets.opensea.io/">
-                    https://testnets.opensea.io
-                  </a>{" "}
-                  (Goerli){" "}
-                </span>
-              </p>
-            </div>
-          ) : (
-            <div>
-              <div className="item-content-detail">
-                <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
-              </div>
+//           {nftClaimed ? (
+//             <div className="item-content-detail">
+//               <p>Owner: {user?.attributes.ethAddress}</p>
+//               <p>
+//                 <span>
+//                   {" "}
+//                   Checkout your NFT on{" "}
+//                   <a href="https://testnets.opensea.io/">
+//                     https://testnets.opensea.io
+//                   </a>{" "}
+//                   (Goerli){" "}
+//                 </span>
+//               </p>
+//             </div>
+//           ) : (
+//             <div>
+//               <div className="item-content-detail">
+//                 <p>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
+//               </div>
 
-              <div className="item-content-buy">
-                {loanRepaid ? (
-                  <button className="primary-btn" onClick={() => claimNFT()}>
-                    Claim NFT
-                  </button>
-                ) : (
-                  <div className="item-content-detail">
-                    <p>Time Remaining : {timeRemaining} Days</p>
-                    <p>
-                      <span>
-                        *Note: Failure to pay full amount in the remaining time
-                        will result in default of the sale, which means you
-                        won't be able to claim your NFT.
-                      </span>
-                    </p>
-                    <button className="primary-btn" onClick={() => repay()}>
-                      Pay 0.007 ETH
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div> */}
+//               <div className="item-content-buy">
+//                 {loanRepaid ? (
+//                   <button className="primary-btn" onClick={() => claimNFT()}>
+//                     Claim NFT
+//                   </button>
+//                 ) : (
+//                   <div className="item-content-detail">
+//                     <p>Time Remaining : {timeRemaining} Days</p>
+//                     <p>
+//                       <span>
+//                         *Note: Failure to pay full amount in the remaining time
+//                         will result in default of the sale, which means you
+//                         won't be able to claim your NFT.
+//                       </span>
+//                     </p>
+//                     <button className="primary-btn" onClick={() => repay()}>
+//                       Pay 0.007 ETH
+//                     </button>
+//                   </div>
+//                 )}
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+//     </div> */}
