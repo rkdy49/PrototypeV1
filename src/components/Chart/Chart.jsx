@@ -72,10 +72,20 @@ const Chart = () => {
 
   return (
     <>
-      <h1 className='ml-20 p-4 text-2xl'>Top Collections</h1>
+      <h1
+        className='ml-20 p-4 text-2xl text-center'
+        style={{
+          fontFamily: 'Inter, Arial',
+          fontWeight: '500',
+          letterSpacing: '0.2rem',
+          fontSize: '2rem',
+        }}
+      >
+        Top Collections
+      </h1>
       <div className=' flex justify-center mt-20'>
         <table className='text-sm w-[80%]'>
-          <thead>
+          <thead className='border-b border-white'>
             <tr>
               <th className='text-start pl-4'>COLLECTION</th>
               <th className=''>FLOOR PRICE</th>

@@ -22,7 +22,7 @@ export default function ComingSoon() {
               </div>
             </div>
             <div className='text-center w-[80%] mt-4'>
-              <input className='w-full rounded-md bg-gray-900 border text-center m-4 h-10' type='text' placeholder='Type your NFT URL here' />
+              <input className='w-full rounded-md bg-gray-900 border border-black text-center m-4 h-10' type='text' placeholder='Type your NFT URL here' />
               <button className=''>Buy Now Pay Later</button>
             </div>
           </div>

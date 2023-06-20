@@ -1,4 +1,6 @@
 import { AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineUser } from 'react-icons/ai'
+import { BiExit } from 'react-icons/bi'
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../UserContext/UserContext'
@@ -24,8 +26,6 @@ const MetaMaskAuthButton = () => {
   const sliceIt = (address) => {
     return `${address.slice(0, 4)}...${address.slice(-4)}`
   }
-
-
 
   const connectAndSign = async () => {
     try {
@@ -58,7 +58,6 @@ const MetaMaskAuthButton = () => {
         // Set the user information in the UserContext
         setUser({ id: userId })
         console.log('user is:', user)
-
       } else {
         // MetaMask is not installed, handle the error or prompt the user to install it
         console.error('MetaMask is not installed.')
@@ -95,19 +94,27 @@ const MetaMaskAuthButton = () => {
           )}
           {toggleMenu && (
             <ul
-              className=' bg-black fixed top-0 -right-2 p-3 w-[70w] h-[200px] shadow-2xl 
+              className='mt-20 bg-black top-0 -right-2 p-3 w-[70w] h-[150px] shadow-2xl 
               flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in'
             >
               <div className='flex flex-col items-center'>
-                <AiOutlineClose onClick={() => setToggleMenu(false)} className='self-start text-2xl' />
-                <img src={userImage} alt='' className='w-12 rounded-full' />
-                <p className='text-white text-l mx-8 mb-4'>{sliceIt(userId)}</p>
-                <p className='cursor-pointer text-xl mb-4' onClick={disconnectFromMetaMask}>
-                  Disconnect Wallet
-                </p>
+                <AiOutlineClose
+                  onClick={() => setToggleMenu(false)}
+                  className='self-start text-2xl mb-4'
+                />
                 <Link to={`/profile/${userId}`}>
-                  <p className='cursor-pointer text-xl mb-4'>User Profile</p>
+                  <p className='cursor-pointer text-xl mb-4 hover:scale-110 flex items-center'>
+                  <AiOutlineUser className='mr-2'/>
+                    My Profile
+                  </p>
                 </Link>
+                <p
+                  className='cursor-pointer text-xl mb-8 hover:scale-110 flex items-center'
+                  onClick={disconnectFromMetaMask}
+                >
+                  <BiExit className='mr-2'/>
+                  Disconnect
+                </p>
               </div>
             </ul>
           )}
@@ -116,9 +123,9 @@ const MetaMaskAuthButton = () => {
       ) : (
         <button
           onClick={connectAndSign}
-          className='inline-flex items-center px-3 py-2 text-lg font-medium text-center text-black border-2 border-black bg-gradient-to-r  from-gray-800 to-green-200'
+          className='text-black bg-[#ffffff] inline-flex items-center px-3 py-2 text-lg font-medium text-center bg-transparent hover:bg-[#0ea5e9] hover:text-white'
         >
-          Connect
+          Connect Wallet
         </button>
       )}
     </div>
@@ -126,4 +133,3 @@ const MetaMaskAuthButton = () => {
 }
 
 export default MetaMaskAuthButton
-

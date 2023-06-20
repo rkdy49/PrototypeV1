@@ -5,7 +5,7 @@ import MetaMaskAuthButton from '../metaskauth/metamask'
 
 const Navbar = () => {
   return (
-    <div className='h-20 flex justify-between items-center px-6 py-2  bg-[#000000]'>
+    <div className='h-20 flex blur-background justify-between items-center px-6 py-2 '>
       <div className='flex w-full items-center justify-between'>
         <div className='mr-2 mx-4 flex items-center text-white'>
           <Link to='/'>

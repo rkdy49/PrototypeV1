@@ -10,15 +10,15 @@ const Home = () => {
   return (
     <div>
       <Header/>
+      <PopularCollections/>
+      <Chart/>
       <Staking/>
      
-      <Chart/>
       {/* <Collection/> */}
      
       
       {/* <Bids title='Hot Bids' /> */}
       {/* <Profile2 /> */}
-      <PopularCollections/>
       <ComingSoon/>
       <Footer />
       {/* <IPFSImage ipfsUrl='ipfs://QmPjbncwNmYieMBP6yo76ggxDyEL85v8NmNmYrRzSnvMqS/la8Ne7MoZ7rIQbjG/2709.png'/> */}

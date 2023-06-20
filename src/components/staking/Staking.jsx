@@ -3,7 +3,7 @@ import nft_1 from "../../assets/nft_1.png";
 
 export default function Staking() {
   return (
-    <div className="m-10 rounded-2xl flex  md:flex-row flex-col justify-evenly  bg-gradient-to-r from-gray-600 to-green-200 items-center">
+    <div className="m-12 rounded-2xl flex  md:flex-row flex-col justify-evenly  white-glassmorphism items-center">
      
       <div className="flex-col items-center">
         <div className="flex my-4 justify-center">
@@ -31,7 +31,7 @@ export default function Staking() {
 
       <div className="flex flex-col items-center">
        
-          <p className="text-black"> Experience Pool-based Ape Staking! </p>
+          <p className=""> Experience Pool-based Ape Staking! </p>
           <button>Stake Now</button>
        
       </div>
