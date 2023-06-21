@@ -9,7 +9,7 @@ const Header = () => {
       <Banner/>
       
       <h2 className='text-4xl mt-20'>Buy Now Pay Later is here for NFTs!</h2>
-      <p className='text-2xl mb-8'>Experience it seamlessly using GearFi</p>
+      <p className='text-2xl mb-20'>Experience it seamlessly using GearFi</p>
      
     </div>
   )

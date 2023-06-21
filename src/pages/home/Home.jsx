@@ -8,10 +8,9 @@ const Home = () => {
   return (
     <div>
       <Header/>
-      <PopularCollections/>
       <TopCollection/>
       <Staking/>
-
+      <PopularCollections/>
       <ComingSoon/>
       <Footer />
 

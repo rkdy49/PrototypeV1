@@ -24,15 +24,11 @@ export default function Banner2() {
           </div>
           <div className='flex'>
             <a href='https://discord.com/invite/PJp2DbX64U'>
-              <button className='bg-[#fff] text-[#333333] font-md px-5 py-2.5 m-2.5 cursor-pointer hover:bg-[#5865F2] hover:text-[#fff]'>
+              <button className='bg-gray-200 text-[#5865F2] text-xl font-md px-5 py-2.5  cursor-pointer hover:bg-[#5865F2] hover:text-gray-200'>
                 Join Discord
               </button>
             </a>
-            {/* <a href='https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract'>
-              <button className='bg-white text-[#333333] rounded-md font-md px-5 py-2.5 m-2.5  cursor-pointer '>
-                Docs
-              </button>
-            </a> */}
+           
           </div>
         </div>
         <div className='white-glassmorphism-no-border rounded-none py-4 px-8 align-self-left'>

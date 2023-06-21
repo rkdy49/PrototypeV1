@@ -26,7 +26,7 @@ const UserData = ({ users }) => {
         return (
           <tr
             key={curUser.address}
-            className='hover:bg-gray-800 text-center mt-4'
+            className='hover:bg-gray-600 text-center mt-4'
             onClick={() => handleRedirect(curUser.address)}
             style={{ cursor: 'pointer' }}
           >
@@ -85,7 +85,7 @@ const Chart = () => {
 
       <div className=' flex justify-center mt-10'>
         <table className='text-sm w-[80%]'>
-          <thead className='border-b border-white'>
+          <thead className=' border-b border-white'>
             <tr>
               <th className='text-start pl-4'>COLLECTION</th>
               <th className=''>FLOOR PRICE</th>

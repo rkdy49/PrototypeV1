@@ -123,7 +123,7 @@ const MetaMaskAuthButton = () => {
       ) : (
         <button
           onClick={connectAndSign}
-          className='text-black bg-[#ffffff] inline-flex items-center px-3 py-2 text-lg font-medium text-center bg-transparent hover:bg-[#0ea5e9] hover:text-white '
+          className='text-[#0ea5e9] bg-gray-800 border-2 items-center px-3 py-2 text-lg font-medium text-center  hover:bg-[#0ea5e9] hover:text-gray-800 '
         >
           Connect Wallet
         </button>
