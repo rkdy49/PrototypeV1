@@ -22,33 +22,34 @@ const Navbar = () => {
               >
                 GEAR
               </span>
-              <div className='text-blue-500 top-0 text-xs'>Testnet</div>
+              <div className='text-[#5865F2] top-0 text-xs'>Testnet</div>
             </div>
           </Link>
         </div>
-        <div className='flex items-center ml-4 text-lg '>
-          <a href='https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract'>
-            <li className='text-white mx-4  list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
-              Docs
-            </li>
-          </a>
+        <div className='flex items-center text-lg '>
+          
           <a href='https://discord.com/invite/PJp2DbX64U'>
-            <li className='text-white mx-4 list-none  capitalize mr-1 cursor-pointer  hover:text-gray-400'>
-              Discord
-            </li>
-          </a>
-          <a href='https://discord.com/invite/PJp2DbX64U'>
-            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#5865F2] hover:scale-105'>
               Discover
             </li>
           </a>
           <a href='https://discord.com/invite/PJp2DbX64U'>
-            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#5865F2] hover:scale-105'>
               Stake
             </li>
           </a><a href='https://discord.com/invite/PJp2DbX64U'>
-            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-gray-400'>
+            <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#5865F2] hover:scale-105'>
               BNPL
+            </li>
+          </a>
+          <a href='https://armilaadarshs-organization.gitbook.io/gearfi_litepaper/welcome-to-gear_fi/abstract'>
+            <li className='text-white mx-4  list-none capitalize mr-1 cursor-pointer  hover:text-[#5865F2] hover:scale-105'>
+              Docs
+            </li>
+          </a>
+          <a href='https://discord.com/invite/PJp2DbX64U'>
+            <li className='text-white mx-4 list-none  capitalize mr-1 cursor-pointer  hover:text-[#5865F2] hover:scale-105'>
+              Discord
             </li>
           </a>
         </div>

@@ -13,8 +13,18 @@ export default function PopularCollections() {
 
   return (
     <div className='text-white font-semibold m-20'>
-      <div className='text-3xl mb-6'>Popular Collections</div>
-      <div className='flex justify-evenly'>
+      <h1  
+        className='ml-20 p-4 text-2xl text-center'
+        style={{
+          fontFamily: 'Inter, Arial',
+          fontWeight: '500',
+          letterSpacing: '0.2rem',
+          fontSize: '2rem',
+        }}>
+          Popular Collections
+        </h1>
+
+      <div className='flex justify-evenly mt-10'>
         {data.slice(2,6).map((coll) => {
           return (
             <div

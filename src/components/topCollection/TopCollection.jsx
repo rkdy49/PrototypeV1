@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import data from '../../assets/data.json'
-import nft from '../../assets/nft.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const UserData = ({ users }) => {
@@ -73,7 +72,7 @@ const Chart = () => {
   return (
     <>
       <h1
-        className='ml-20 p-4 text-2xl text-center'
+        className='p-4 text-2xl text-center'
         style={{
           fontFamily: 'Inter, Arial',
           fontWeight: '500',
@@ -83,7 +82,8 @@ const Chart = () => {
       >
         Top Collections
       </h1>
-      <div className=' flex justify-center mt-20'>
+
+      <div className=' flex justify-center mt-10'>
         <table className='text-sm w-[80%]'>
           <thead className='border-b border-white'>
             <tr>

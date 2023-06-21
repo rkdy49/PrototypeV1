@@ -1,5 +1,5 @@
 import React from 'react'
-import {Footer, Header, PopularCollections, Chart } from '../../components'
+import {Footer, Header, PopularCollections, TopCollection } from '../../components'
 import './home.css'
 
 import Staking from '../../components/staking/Staking'
@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Header/>
       <PopularCollections/>
-      <Chart/>
+      <TopCollection/>
       <Staking/>
 
       <ComingSoon/>
