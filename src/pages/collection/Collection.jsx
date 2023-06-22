@@ -7,20 +7,21 @@ import axios from 'axios'
 import { useParams } from 'react-router'
 import data from './data.json'
 
+import { UserContext } from '../../components/UserContext/UserContext'
 
 export default function Collection() {
   const { collAddress } = useParams()
   const [nftData, setNftData] = useState([])
 
-  useEffect(() => {
-    console.log('useEffect1')
-    axios(`http://localhost:8000/assets/${collAddress}`).then(
-      ({ data }) => {
-        console.log('datacollection type', data)
-        setNftData(data)
-      }
-    )
-  }, [collAddress])
+  // useEffect(() => {
+  //   console.log('useEffect1')
+  //   axios(`http://localhost:8000/assets/${collAddress}`).then(
+  //     ({ data }) => {
+  //       console.log('datacollection type', data)
+  //       setNftData(data)
+  //     }
+  //   )
+  // }, [collAddress])
   console.log('nftData:', nftData)
 
   const nftDataArr = Object.values(nftData);
@@ -42,41 +43,34 @@ export default function Collection() {
       </div>
       <div>
         <div className='mx-4 mb-0 mt-8 text-3xl font-bold'>
-          Muses in my life
+          {collData.COLLECTION}
         </div>
-        <div className='m-4 my-0 text-md font-semibold'>By RyanAnnet</div>
-        <div className='mx-4 text-xs mb-2'>
-          "Muses of My Life" is an exclusive NFT collection that features a
-          series of digital artworks inspired by the muses that...
+       
+        <div className='mx-4 text-lg m-4 w-2/3'>
+          {collData.description}
         </div>
         <div className='flex'>
-          <div className='flex-col ml-4'>
-            <div>0.75ETH</div>
-            <div className='text-xs'>total volume</div>
+          <div className='flex-col ml-8 text-center'>
+            <div>{collData.FLOOR_PRICE}ETH</div>
+            <div className='text-sm mt-2'>Floor Price</div>
           </div>
-          <div className='flex-col ml-4'>
-            <div>0.75ETH</div>
-            <div className='text-xs'>total volume</div>
+          <div className='flex-col ml-8 text-center'>
+            <div>{collData.SUPPLY}</div>
+            <div className='text-sm mt-2'>Total Supply</div>
           </div>
-          <div className='flex-col ml-4'>
-            <div>0.75ETH</div>
-            <div className='text-xs'>total volume</div>
+          <div className='flex-col ml-8 text-center'>
+            <div>{collData.OWNERS}</div>
+            <div className='text-sm mt-2'>Unique Owners</div>
           </div>
-          <div className='flex-col ml-4'>
+          <div className='flex-col ml-8 text-center'>
             <div>0.75ETH</div>
-            <div className='text-xs'>total volume</div>
-          </div>
-          <div className='flex-col ml-4'>
-            <div>0.75ETH</div>
-            <div className='text-xs'>total volume</div>
+            <div className='text-sm mt-2'>total volume</div>
           </div>
         </div>
-        <h1 className='text-white'>working</h1>
+   
         <div className='grid grid-cols-5 m-2 text-white'>
-  
-        
-          
-       
+          {nftDataArr.map((nft) => {
+            return (
               <div className='flex flex-col m-2 mt-8 w-56 h-72 border-2 border-indigo-300'>
                 {console.log(`nft image is : https://ipfs.io/ipfs/${nft.metadata.imageURI.split('//')[1]}`)}
                 <img src={`https://ipfs.io/ipfs/${nft.metadata.imageURI.split('//')[1]}`} alt='' className='w-64 h-48' />
@@ -91,18 +85,18 @@ export default function Collection() {
                     <div className='w-24 text-sm'>
                       FLOOR PRICE:
                       <br />
-                      {data?.price}
+                      {nft.price}
                     </div>
                     <div className='ml-4 w-20 text-sm'>
                       LAST SALE:
                       <br />
-                     
+                      {nft.lastSale}
                     </div>
                   </div>
                 </div>
               </div>
-              
-      
+            )
+          })}
         </div>
       </div>
     </div>
