@@ -19,7 +19,6 @@ const Item = () => {
   const [sale, setSale] = useState()
 
   useEffect(() => {
-    console.log('useEffect1')
     axios(`http://localhost:8000/assets/${tokenAddress}/${tokenId}`).then(
       ({ data }) => {
         console.log('datacollection type', data)
@@ -55,8 +54,8 @@ const Item = () => {
         </div>
 
         <div className='item-content-detail mt-5'>
-          <p className=''>Owner: 0xB9e53abF5b0bAE6353076467F0505DebA8A98efa</p>
-          <p className=''>Price: 0.01 ETH</p>
+          <p className=''>Owner: {nftData.owner}</p>
+          <p className=''>Price: {nftData.price} ETH</p>
           <p className=''>Downpayment: 30%</p>
           <p className=''>Repayment Duration: 4 days</p>
         </div>
