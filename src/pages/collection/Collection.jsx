@@ -13,15 +13,16 @@ export default function Collection() {
   const { collAddress } = useParams()
   const [nftData, setNftData] = useState([])
 
-  // useEffect(() => {
-  //   console.log('useEffect1')
-  //   axios(`http://localhost:8000/assets/${collAddress}`).then(
-  //     ({ data }) => {
-  //       console.log('datacollection type', data)
-  //       setNftData(data)
-  //     }
-  //   )
-  // }, [collAddress])
+  useEffect(() => {
+    console.log('useEffect1')
+    axios(`http://localhost:8000/assets/${collAddress}`).then(
+      ({ data }) => {
+        console.log('datacollection type', data)
+        setNftData(data)
+      }
+    )
+  }, [collAddress])
+
   console.log('nftData:', nftData)
 
   const nftDataArr = Object.values(nftData);
