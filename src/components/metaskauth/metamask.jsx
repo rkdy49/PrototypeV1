@@ -97,12 +97,13 @@ const MetaMaskAuthButton = () => {
               className='mt-20 bg-black top-0 -right-2 p-3 w-[70w] h-[150px] shadow-2xl 
               flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in'
             >
+              {console.log('acco', window.ethereum.selectedAddress)}
               <div className='flex flex-col items-center'>
                 <AiOutlineClose
                   onClick={() => setToggleMenu(false)}
                   className='self-start text-2xl mb-4'
                 />
-                <Link to={`/profile/${userId}`}>
+                <Link to={`/profile/${userId}`} state={{ data: window.ethereum.selectedAddress }}>
                   <p className='cursor-pointer text-xl mb-4 hover:scale-110 flex items-center'>
                   <AiOutlineUser className='mr-2'/>
                     My Profile
