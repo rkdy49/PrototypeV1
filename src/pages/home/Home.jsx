@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <div>
       <Header/>
-      <EarlyAccess/>
       <TopCollection/>
       <Staking/>
       <PopularCollections/>
+      <EarlyAccess/>
       <ComingSoon/>
       <Footer />
 

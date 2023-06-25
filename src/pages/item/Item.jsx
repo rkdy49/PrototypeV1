@@ -23,7 +23,7 @@ const Item = () => {
       console.log('datacollection type', data[0].owner)
       setNftData(data[0])
     })
-  }, [nftAddress, tokenId])
+  }, [tokenAddress, tokenId])
 
   async function bnplInitialize() {
     const accounts = await window.ethereum.request({ method: 'eth_accounts' })
@@ -106,7 +106,7 @@ const Item = () => {
           </div>
         </div>
         <div className='mx-auto my-8 item-content-buy mb-4'>
-          {nftData.state === 'listed' ? (
+          {nftData.state === 'LISTED' ? (
             <div>
               <div className='relative inline-block'>
                 <button className='primary-btn mb-0' onClick={bnplInitialize}>

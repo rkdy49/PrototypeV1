@@ -25,13 +25,7 @@ export default function EarlyAccess() {
             <img src={thumbsUpNFT} alt='' />
           </div>
           <div className='flex flex-col w-2/3 justify-center items-center'>
-            <div className='text-5xl m-4 font-semibold'>Thanks for Subscribing</div>
-            <div className='text-xl w-5/6 m-4'>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-              fugit. Quae asperiores saepe doloremque provident ab voluptatem,
-              optio necessitatibus adipisci.
-            </div>
-          
+            <div className='text-4xl m-4 font-semibold'>Thanks!</div>
           </div>
         </div>
       ) : (
@@ -40,28 +34,29 @@ export default function EarlyAccess() {
             <img src={earlyAccessImg} alt='' />
           </div>
           <div className='flex flex-col w-2/3 justify-center items-center'>
-            <div className='text-5xl m-4 font-semibold'>Get Early Access</div>
-            <div className='text-xl w-5/6 m-4'>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-              fugit. Quae asperiores saepe doloremque provident ab voluptatem,
-              optio necessitatibus adipisci.
+            <div className='text-4xl m-4 font-semibold'>Get Early Access</div>
+            <div className='text-2xl m-4 text-center'>
+              {' '}
+              Be a part of NFT Revolution and get early access to our mainnet
+              application
             </div>
-          
-          <div>
-            <input
-              type='text'
-              placeholder='abc@xyz.com'
-              className='m-4 text-2xl p-2 w-2/3 rounded-md text-black'
-              value={email}
-              onChange={handleInputChange}
-            />
-            <button
-              className='m-4 text-2xl p-2 w-2/3 bg-[#ea4c89]'
-              onClick={sendEmail}
-            >
-              Subscribe
-            </button>
-          </div></div>
+
+            <div className='flex justify-center'>
+              <input
+                type='text'
+                placeholder='Your email here'
+                className='m-4 text-2xl p-2  rounded-md text-black'
+                value={email}
+                onChange={handleInputChange}
+              />
+              <button
+                className='text-[#0ea5e9] bg-gray-800 px-3 text-lg font-medium text-center  hover:bg-[#0ea5e9] hover:text-gray-800'
+                onClick={sendEmail}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

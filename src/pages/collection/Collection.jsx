@@ -11,10 +11,12 @@ export default function Collection() {
   const [nftData, setNftData] = useState([])
 
   useEffect(() => {
-    axios(`https://gearfi-testnet.onrender.com/assets/${collAddress}`).then(({ data }) => {
-      console.log('datacollection type', data)
-      setNftData(data)
-    })
+    axios(`https://gearfi-testnet.onrender.com/assets/${collAddress}`).then(
+      ({ data }) => {
+        console.log('datacollection type', data)
+        setNftData(data)
+      }
+    )
   }, [collAddress])
 
   console.log('nftData:', nftData)
@@ -65,14 +67,14 @@ export default function Collection() {
           </div>
         </div>
 
-        <div className='grid grid-cols-5 m-2 text-white'>
+        <div className='grid grid-cols-4 m-2 text-white'>
           {nftDataArr.map((nft) => {
             return (
               <Link
                 to={`/collection/${nft.contractAddress}/${nft.tokenId}`}
                 state={{ data: nft }}
               >
-                <div className='flex flex-col m-2 mt-8 w-56 h-72 border-2 border-indigo-300'>
+                <div className='flex flex-col m-2 mt-8 w-56 h-80 border-2 border-indigo-300'>
                   {console.log(
                     `nft image is : https://ipfs.io/ipfs/${
                       nft.metadata.imageURI.split('//')[1]
@@ -88,21 +90,19 @@ export default function Collection() {
                   <div className='flex flex-col mt-0 p-4'>
                     <div className='font-bold mb-2 flex items-center justify-between'>
                       <div>{nft.metadata.name}</div>
-                      <div>
-                        <AiOutlineArrowRight className='mr-4' />
-                      </div>
+                      
                     </div>
                     <div className='flex'>
                       <div className='w-24 text-sm'>
-                        FLOOR PRICE:
+                        Price
                         <br />
-                        {nft.price}
+                        {nft.price} SHM
                       </div>
-                      <div className='ml-4 w-20 text-sm'>
-                        LAST SALE:
+                      <div className='ml-2 w-30 text-sm text-center'>
+                        DownPayment
                         <br />
-                        {nft.lastSale}
-                      </div>
+                        30%
+                        </div>
                     </div>
                   </div>
                 </div>

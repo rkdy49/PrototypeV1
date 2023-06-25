@@ -5,7 +5,10 @@ export default function StakingPage() {
 
   return (
     <div className=' text-white h-[100vh] w-1/2 mx-auto'>
-      <div className='mt-20 border border-slate-500'>
+       
+      <div className='mt-20 text-3xl text-center'>GearFi Vault</div>
+        <div className='text-xl mt-4 text-center mb-4'>Deposit SHM to Earn Exciting APR.</div>
+      <div className='border border-slate-500'>
         <div className='flex justify-center '>
           <div
             className={`m-4  p-4 ${
@@ -18,7 +21,7 @@ export default function StakingPage() {
               setActive('deposit')
             }}
           >
-            deposit
+            Deposit
           </div>
           <div
             className={`m-4  p-4 ${
@@ -31,13 +34,12 @@ export default function StakingPage() {
               setActive('withdraw')
             }}
           >
-            withdraw
+            Withdraw
           </div>
         </div>
         {active === 'deposit' && (
           <div className='flex flex-col items-center'>
-            <div className='text-3xl mt-4'>GearFi Testnets</div>
-            <div>Deposit SHM to GearFi Vault.</div>
+          
             <div className='flex border border-white w-5/6 justify-between p-4 m-4 rounded-md'>
               <div className='flex flex-col '>
                 <div>Amount</div>

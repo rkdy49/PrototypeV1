@@ -40,7 +40,7 @@ const Navbar = () => {
             </li>
           </a>
           </Link>
-          <a href='https://discord.com/invite/PJp2DbX64U'>
+          <a href='#bnplComponent'>
             <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#0ea5e9] hover:scale-105'>
               BNPL
             </li>
