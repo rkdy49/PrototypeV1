@@ -5,7 +5,7 @@ import MetaMaskAuthButton from '../metaskauth/metamask'
 
 const Navbar = () => {
   return (
-    <div className='h-20 flex blur-background justify-between items-center px-6 py-2 '>
+    <div className='h-20 flex blur-background justify-between items-center px-6 py-2'>
       <div className='flex w-full items-center justify-between'>
         <div className='mr-2 mx-4 flex items-center text-white'>
           <Link to='/'>
@@ -28,16 +28,19 @@ const Navbar = () => {
         </div>
         <div className='flex items-center text-lg '>
           
-          <a href='https://discord.com/invite/PJp2DbX64U'>
+          {/* <a href='https://discord.com/invite/PJp2DbX64U'>
             <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#0ea5e9] hover:scale-105'>
               Discover
             </li>
-          </a>
+          </a> */}
+          <Link to={`/staking`}>
           <a href='https://discord.com/invite/PJp2DbX64U'>
             <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#0ea5e9] hover:scale-105'>
               Stake
             </li>
-          </a><a href='https://discord.com/invite/PJp2DbX64U'>
+          </a>
+          </Link>
+          <a href='https://discord.com/invite/PJp2DbX64U'>
             <li className='text-white mx-4 list-none capitalize mr-1 cursor-pointer  hover:text-[#0ea5e9] hover:scale-105'>
               BNPL
             </li>

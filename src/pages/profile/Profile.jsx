@@ -1,86 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useLocation } from "react-router";
+// import { useLocation } from "react-router";
 import './profile.css'
 import axios from 'axios'
 import userProfile from '../../assets/userProfile.jpg'
-import Web3 from 'web3'
+// import Web3 from 'web3'
+import { useParams } from 'react-router'
 
 /***************************************************************** */
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
 const Profile = () => {
+  const { userAddress } = useParams()
+
   const [listings, setListings] = React.useState(true)
   const [nftData, setNftData] = useState([])
-  const location = useLocation();
-  const address = location.state?.data;
-  useEffect(() => {
-    console.log('selected', window.ethereum.selectedAddress)
-    axios(`http://localhost:8000/assets?owner=${address}`).then(({ data }) => {
+
+  useEffect(()=>{
+    console.log(`http://localhost:8000/assets?owner=${userAddress}`)
+  axios(`http://localhost:8000/assets?owner=${userAddress.toLowerCase()}`).then(
+    ({ data }) => {
       console.log('krishna!!')
-      // console.log('datacollection ', data)
       setNftData(data)
-    })
+    }
+  )
   }, [])
-
-  // useEffect(() => {
-  //   const fetchNftData = async () => {
-  //     try {
-  //       const accounts = await window.ethereum.request({
-  //         method: 'eth_accounts',
-  //       })
-  //       const selectedAddress = accounts[0]
-  //       console.log('selected', selectedAddress)
-
-  //       const response = await axios.get(
-  //         `http://localhost:8000/assets?owner=${selectedAddress}`
-  //       )
-  //       const data = response.data
-  //       console.log('krishna!!')
-  //       setNftData(data)
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-
-  //   fetchNftData()
-
-  //   const handleAccountsChanged = (accounts) => {
-  //     if (accounts.length > 0) {
-  //       const selectedAddress = accounts[0]
-  //       console.log('selected', selectedAddress)
-  //       axios(`http://localhost:8000/assets?owner=${selectedAddress}`).then(
-  //         ({ data }) => {
-  //           console.log('krishna!!')
-  //           setNftData(data)
-  //         }
-  //       )
-  //     }
-  //   }
-
-  //   window.ethereum.on('accountsChanged', handleAccountsChanged)
-
-  //   return () => {
-  //     window.ethereum.off('accountsChanged', handleAccountsChanged)
-  //   }
-  // }, [])
-
-  if (window.ethereum) {
-    console.log('fsjkdhfsg')
-    const provider = new Web3(window.ethereum)
-
-    // Listen for selected address changes
-    window.ethereum.on('accountsChanged', function (accounts) {
-      const selectedAddress = accounts[0]
-      axios(
-        `http://localhost:8000/assets?owner=${window.ethereum.selectedAddress}`
-      ).then(({ data }) => {
-        console.log('krishna!!')
-        // console.log('datacollection ', data)
-        setNftData(data)
-      })
-    })
-  }
 
   console.log('datacollection ', nftData)
   return (

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Navbar } from './components'
 import Collection from './pages/collection/Collection'
 import Staking from './pages/staking/StakingPage'
+// import Discover from './pages/discover/discover'
 function App() {
   return (
     <div className='gradient-bg-welcome'>
@@ -13,12 +14,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         {/* <Route path=':item/:id' element={<Item />} /> */}
-        <Route path='/MyProfile' element={<Profile />} />
-        <Route path='profileitem/:id' element={<Profile_item />} />
+        <Route path='/user/:userAddress' element={<Profile />} />
         <Route path = 'collection/:collAddress' element={<Collection/>} />
         <Route path = '/collection/:tokenAddress/:tokenId' element={<Item />} />
         <Route path = '/account/:tokenAddress/:tokenId' element={<Profile_item/>} />
-        <Route path = 'staking' element={<Staking/>} />
+        {/* <Route path = '/discover' element={<Discover/>} /> */}
+        <Route path = '/staking' element={<Staking/>} />
       </Routes>
     </div>
   )

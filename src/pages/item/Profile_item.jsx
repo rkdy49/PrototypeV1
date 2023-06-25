@@ -233,7 +233,6 @@ const ProfileItem = () => {
           alt=''
           className='rounded-15'
         />
-        {/* <p className='mt-4 '>Description: {nft?.metadata.description}</p> */}
       </div>
       <div className='item-content flex-1 flex justify-start items-start flex-col m-5 relative'>
         <div className='item-content-title'>

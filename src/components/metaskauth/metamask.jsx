@@ -103,7 +103,7 @@ const MetaMaskAuthButton = () => {
                   onClick={() => setToggleMenu(false)}
                   className='self-start text-2xl mb-4'
                 />
-                <Link to={`/profile/${userId}`} state={{ data: window.ethereum.selectedAddress }}>
+                <Link to={`/user/${userId}`} state={{ data: window.ethereum.selectedAddress }}>
                   <p className='cursor-pointer text-xl mb-4 hover:scale-110 flex items-center'>
                   <AiOutlineUser className='mr-2'/>
                     My Profile

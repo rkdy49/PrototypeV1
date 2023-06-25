@@ -4,10 +4,12 @@ import './home.css'
 
 import Staking from '../../components/staking/Staking'
 import ComingSoon from '../../components/comingSoon/comingSoon'
+import EarlyAccess from '../../components/earlyAccess/EarlyAccess'
 const Home = () => {
   return (
     <div>
       <Header/>
+      <EarlyAccess/>
       <TopCollection/>
       <Staking/>
       <PopularCollections/>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './header.css'
 
-import Banner from '../banner/banner2'
+import Banner from '../banner/banner'
 
 const Header = () => {
   return (
